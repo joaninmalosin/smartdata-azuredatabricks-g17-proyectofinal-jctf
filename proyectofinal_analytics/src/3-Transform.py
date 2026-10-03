@@ -9,20 +9,31 @@ from pyspark.sql import functions as F
 
 # COMMAND ----------
 
-dbutils.widgets.text("catalogo", "catalog_dev")
-dbutils.widgets.text("esquema_bronze", "bronze")
-dbutils.widgets.text("esquema_silver", "silver")
+dbutils.widgets.text("container_raw", "raw")
+dbutils.widgets.text("container_metastore", "metastore")
+dbutils.widgets.text("catalog", "catalog_dev")
+dbutils.widgets.text("schema_bronze", "bronze")
+dbutils.widgets.text("schema_silver", "silver")
+dbutils.widgets.text("schema_golden", "golden")
+dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
+container_raw = dbutils.widgets.get("container_raw")
+catalog = dbutils.widgets.get("catalog")
+schema_bronze = dbutils.widgets.get("schema_bronze")
+schema_silver = dbutils.widgets.get("schema_silver")
+schema_golden = dbutils.widgets.get("schema_golden")
+storageName = dbutils.widgets.get("storageName")
+
+
+spark.sql(f"USE CATALOG {catalog}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_silver}")
+spark.sql(f"USE SCHEMA {schema_silver}")
+
+spark.sql(f"USE SCHEMA {schema_bronze}")
+
 
 # COMMAND ----------
 
-
-catalogo = dbutils.widgets.get("catalogo")
-esquema_bronze = dbutils.widgets.get("esquema_bronze")
-esquema_silver = dbutils.widgets.get("esquema_silver")
-
-# COMMAND ----------
-
-df_clientes = spark.table(f"{catalogo}.{esquema_bronze}.clientes")
+df_clientes = spark.table(f"{catalog}.{schema_bronze}.clientes")
      
 
 # COMMAND ----------
@@ -58,7 +69,7 @@ df_clientes_silver = df_clientes.select(
 
 # COMMAND ----------
 
-df_clientes_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.clientes")
+df_clientes_silver.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.clientes")
 
 # COMMAND ----------
 
@@ -67,7 +78,7 @@ df_clientes_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silv
 
 # COMMAND ----------
 
-df_hoteles = spark.table(f"{catalogo}.{esquema_bronze}.hoteles")
+df_hoteles = spark.table(f"{catalog}.{schema_bronze}.hoteles")
 #df_hoteles.display()
 
 
@@ -97,11 +108,11 @@ df_hoteles_silver = df_hoteles.select(
 
 # COMMAND ----------
 
-df_hoteles_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.hoteles")
+df_hoteles_silver.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.hoteles")
 
 # COMMAND ----------
 
-df_vuelos = spark.table(f"{catalogo}.{esquema_bronze}.vuelos")
+df_vuelos = spark.table(f"{catalog}.{schema_bronze}.vuelos")
 
 # COMMAND ----------
 
@@ -139,11 +150,11 @@ df_vuelos_silver = df_vuelos.select(
 
 # COMMAND ----------
 
-df_vuelos_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.vuelos")
+df_vuelos_silver.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.vuelos")
 
 # COMMAND ----------
 
-df_reservas = spark.table(f"{catalogo}.{esquema_bronze}.reservas")
+df_reservas = spark.table(f"{catalog}.{schema_bronze}.reservas")
 
 
 # COMMAND ----------
@@ -193,14 +204,15 @@ df_reservas_silver = df_reservas.select(
      .otherwise(F.lit("ERROR"))
      .alias("validacion_fechas")
 )
+#
 
 # COMMAND ----------
 
-df_reservas_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.reservas")
+df_reservas_silver.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.reservas")
 
 # COMMAND ----------
 
-df_pagos = spark.table(f"{catalogo}.{esquema_bronze}.pagos")
+df_pagos = spark.table(f"{catalog}.{schema_bronze}.pagos")
 
 # COMMAND ----------
 
@@ -229,7 +241,7 @@ df_pagos_silver = df_pagos.select(
 
 # COMMAND ----------
 
-df_pagos_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.pagos")
+df_pagos_silver.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.pagos")
 
 # COMMAND ----------
 
@@ -238,11 +250,11 @@ df_pagos_silver.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}
 # COMMAND ----------
 
 # 1. Cargar las tablas origen desde el catálogo
-r = spark.read.table(f"{catalogo}.{esquema_silver}.reservas")
-c = spark.read.table(f"{catalogo}.{esquema_silver}.clientes")
-v = spark.read.table(f"{catalogo}.{esquema_silver}.vuelos")
-h = spark.read.table(f"{catalogo}.{esquema_silver}.hoteles")
-p = spark.read.table(f"{catalogo}.{esquema_silver}.pagos")
+r = spark.read.table(f"{catalog}.{schema_silver}.reservas")
+c = spark.read.table(f"{catalog}.{schema_silver}.clientes")
+v = spark.read.table(f"{catalog}.{schema_silver}.vuelos")
+h = spark.read.table(f"{catalog}.{schema_silver}.hoteles")
+p = spark.read.table(f"{catalog}.{schema_silver}.pagos")
 
 # 2. Realizar los LEFT JOINs secuenciales
 df_join = r \
@@ -312,4 +324,4 @@ df_silver_reservas_enrr = df_join.select(
 
 # COMMAND ----------
 
-df_silver_reservas_enrr.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_silver}.reservas_enriquecidas")
+df_silver_reservas_enrr.write.mode("overwrite").insertInto(f"{catalog}.{schema_silver}.reservas_enriquecidas")
