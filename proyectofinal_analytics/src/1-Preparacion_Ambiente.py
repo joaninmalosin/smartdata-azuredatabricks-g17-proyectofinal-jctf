@@ -152,7 +152,7 @@ LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/clientes"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_bronze}.hoteles (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_bronze}.hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
@@ -171,7 +171,7 @@ LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/hoteles"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_bronze}.vuelos (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_bronze}.vuelos (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -193,7 +193,7 @@ LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/vuelos"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_bronze}.reservas (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_bronze}.reservas (
     id_reserva string,
     id_cliente string,
     id_vuelo string,
@@ -216,7 +216,7 @@ LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/reservas"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_bronze}.pagos (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_bronze}.pagos (
     id_pago string,
     id_reserva string,
     id_cliente string,
@@ -240,7 +240,7 @@ LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/pagos"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.clientes (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.clientes (
     cliente_id string,
     nombre_completo string,
     edad int,
@@ -259,7 +259,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/clientes"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.hoteles (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
@@ -279,7 +279,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/hoteles"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.vuelos (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.vuelos (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -305,7 +305,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/vuelos"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.reservas (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.reservas (
     id_reserva string,
     id_cliente string,
     id_vuelo string,
@@ -331,7 +331,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/reservas"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.pagos (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.pagos (
     id_pago string,
     id_reserva string,
     id_cliente string,
@@ -351,7 +351,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/pagos"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_silver}.reservas_enriquecidas (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_silver}.reservas_enriquecidas (
     id_reserva string,
     fecha_reserva timestamp,
     fecha_salida timestamp,
@@ -413,7 +413,7 @@ LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/reservas_en
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.dim_cliente (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.dim_cliente (
     cliente_id string,
     nombre_completo string,
     edad int,
@@ -430,7 +430,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_cliente
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.dim_destino (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.dim_destino (
     destino_codigo string,
 	destino string
 )
@@ -441,7 +441,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_destino
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.dim_hotel (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.dim_hotel (
     hotel_id string,
     nombre_hotel string,
     destino_codigo string,
@@ -459,7 +459,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_hotel"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.dim_vuelo (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.dim_vuelo (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -478,7 +478,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_vuelo"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.dim_fecha (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.dim_fecha (
     fecha_key int,
 	fecha timestamp,
 	anio int,
@@ -498,7 +498,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_fecha"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.fact_reservas (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.fact_reservas (
     id_reserva          string,
     fecha_reserva_key   integer,
     fecha_salida_key    integer,
@@ -528,7 +528,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/fact_reserv
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_ventas_mensuales (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_ventas_mensuales (
     anio int,
     mes int,
     nombre_mes string,
@@ -546,7 +546,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_ventas_
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_destinos (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_destinos (
     destino_codigo string,
     destino string,
     total_reservas int,
@@ -564,7 +564,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_destino
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_clientes (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_clientes (
     cliente_id string,
     nombre_completo string,
     segmento_cliente string,
@@ -583,7 +583,7 @@ LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_cliente
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_hoteles (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
