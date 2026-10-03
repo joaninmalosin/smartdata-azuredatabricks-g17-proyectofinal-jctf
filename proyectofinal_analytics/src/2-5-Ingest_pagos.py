@@ -74,4 +74,4 @@ df_pago_final = df_pago_read.select(
 
 # COMMAND ----------
 
-df_pago_final.write.mode("overwrite").insertInto(f"{catalogo}.{esquema}.pagos")
+df_pago_final.write.mode("overwrite").insertInto(f"{catalog}.{schema_bronze}.pagos")

@@ -9,19 +9,31 @@ from pyspark.sql import functions as F
 
 # COMMAND ----------
 
-dbutils.widgets.text("catalogo", "catalog_dev")
-dbutils.widgets.text("esquema_silver", "silver")
-dbutils.widgets.text("esquema_golden", "golden")
+dbutils.widgets.text("container_raw", "raw")
+dbutils.widgets.text("container_metastore", "metastore")
+dbutils.widgets.text("catalog", "catalog_dev")
+dbutils.widgets.text("schema_bronze", "bronze")
+dbutils.widgets.text("schema_silver", "silver")
+dbutils.widgets.text("schema_golden", "golden")
+dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
+container_raw = dbutils.widgets.get("container_raw")
+catalog = dbutils.widgets.get("catalog")
+schema_bronze = dbutils.widgets.get("schema_bronze")
+schema_silver = dbutils.widgets.get("schema_silver")
+schema_golden = dbutils.widgets.get("schema_golden")
+storageName = dbutils.widgets.get("storageName")
+
+
+spark.sql(f"USE CATALOG {catalog}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_golden}")
+spark.sql(f"USE SCHEMA {schema_silver}")
+
+spark.sql(f"USE SCHEMA {schema_golden}")
+
 
 # COMMAND ----------
 
-catalogo = dbutils.widgets.get("catalogo")
-esquema_silver = dbutils.widgets.get("esquema_silver")
-esquema_golden = dbutils.widgets.get("esquema_golden")
-
-# COMMAND ----------
-
-df_reservas = spark.table(f"{catalogo}.{esquema_silver}.reservas_enriquecidas")
+df_reservas = spark.table(f"{catalog}.{schema_silver}.reservas_enriquecidas")
 #df_reservas.display()
 
 # COMMAND ----------
@@ -44,7 +56,7 @@ df_clientes = (df_reservas
 
 # COMMAND ----------
 
-df_clientes.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.dim_cliente")
+df_clientes.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.dim_cliente")
 
 # COMMAND ----------
 
@@ -56,7 +68,7 @@ df_destino = (df_reservas
 
 # COMMAND ----------
 
-df_destino.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.dim_destino")
+df_destino.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.dim_destino")
 
 # COMMAND ----------
 
@@ -97,7 +109,7 @@ df_hotel.display()
 
 # COMMAND ----------
 
-df_hotel.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.dim_hotel")
+df_hotel.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.dim_hotel")
 
 # COMMAND ----------
 
@@ -120,7 +132,7 @@ dt_vuelos = (
 
 # COMMAND ----------
 
-dt_vuelos.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.dim_vuelo")
+dt_vuelos.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.dim_vuelo")
 
 # COMMAND ----------
 
@@ -163,7 +175,7 @@ df_dim_fecha.display()
 
 # COMMAND ----------
 
-df_dim_fecha.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.dim_fecha")
+df_dim_fecha.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.dim_fecha")
 
 # COMMAND ----------
 
@@ -217,7 +229,7 @@ df_fact_reservas.display()
 
 # COMMAND ----------
 
-df_fact_reservas.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.fact_reservas")
+df_fact_reservas.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.fact_reservas")
 
 # COMMAND ----------
 
@@ -240,7 +252,7 @@ df_kpi_ventas_mensuales = (
 
 # COMMAND ----------
 
-df_kpi_ventas_mensuales.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.kpi_ventas_mensuales")
+df_kpi_ventas_mensuales.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.kpi_ventas_mensuales")
 
 # COMMAND ----------
 
@@ -257,7 +269,7 @@ df_kpi_destinos = df_reservas.groupBy("destino_codigo", "destino").agg(
 
 # COMMAND ----------
 
-df_kpi_destinos.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.kpi_destinos")
+df_kpi_destinos.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.kpi_destinos")
 
 # COMMAND ----------
 
@@ -277,7 +289,7 @@ df_kpi_clientes = df_reservas.groupBy("cliente_id").agg(
 
 # COMMAND ----------
 
-df_kpi_clientes.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.kpi_clientes")
+df_kpi_clientes.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.kpi_clientes")
 
 # COMMAND ----------
 
@@ -305,7 +317,7 @@ df_kpi_hoteles = (
 
 # COMMAND ----------
 
-df_kpi_hoteles.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.kpi_hoteles")
+df_kpi_hoteles.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.kpi_hoteles")
 
 # COMMAND ----------
 
@@ -326,4 +338,4 @@ df_kpi_vuelos = (
 
 # COMMAND ----------
 
-df_kpi_vuelos.write.mode("overwrite").insertInto(f"{catalogo}.{esquema_golden}.kpi_vuelos")
+df_kpi_vuelos.write.mode("overwrite").insertInto(f"{catalog}.{schema_golden}.kpi_vuelos")
