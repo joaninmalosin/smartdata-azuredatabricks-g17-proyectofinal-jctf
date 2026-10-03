@@ -599,3 +599,20 @@ CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_hoteles (
 USING DELTA
 LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_hoteles"
 """)
+
+# COMMAND ----------
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_golden}.kpi_vuelos (
+    aerolinea string,
+    ruta string,
+    jornada string,
+    reservas int,
+    pasajeros int,
+    precio_promedio double,
+    duracion_promedio double,
+    ticket_promedio double
+)
+USING DELTA
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_vuelos"
+""")
