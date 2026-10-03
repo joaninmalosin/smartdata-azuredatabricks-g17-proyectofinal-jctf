@@ -18,7 +18,6 @@ dbutils.widgets.removeAll()
 # COMMAND ----------
 
 storageName = dbutils.widgets.get("storageName");
-spark.sql("CREATE SCHEMA IF NOT EXISTS raw")
 
 # COMMAND ----------
 
@@ -67,10 +66,12 @@ spark.sql("CREATE SCHEMA IF NOT EXISTS raw")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE CATALOG IF NOT EXISTS catalog_dev
-# MAGIC MANAGED LOCATION 'abfss://metastore@${storageName}.dfs.core.windows.net/'
-# MAGIC COMMENT 'Catalogo para la arquitectura medallion del ambiente de dev';
+spark.sql(f"""
+CREATE CATALOG IF NOT EXISTS `catalog_dev`
+MANAGED LOCATION 'abfss://metastore@{storageName}.dfs.core.windows.net/'
+COMMENT 'Catalogo para la arquitectura medallion del ambiente de dev'
+""")
+
 
 # COMMAND ----------
 
