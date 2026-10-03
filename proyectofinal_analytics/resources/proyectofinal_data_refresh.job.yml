@@ -1,0 +1,79 @@
+# A sample job for proyectofinal_analytics.
+
+resources:
+  jobs:
+    proyectofinal_data_refresh:
+      name: proyectofinal_data_refresh
+
+      trigger:
+        # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
+        periodic:
+          interval: 1
+          unit: DAYS
+
+      #email_notifications:
+      #  on_failure:
+      #    - your_email@example.com
+
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema_bronze
+          default: ${var.schema_bronze}
+        - name: schema_silver
+          default: ${var.schema_silver}
+        - name: schema_golden
+          default: ${var.schema_golden}
+
+      tasks:
+        - task_key: 1-Preparacion_Ambiente
+          notebook_task:
+            notebook_path: ../src/1-Preparacion_Ambiente.py
+
+        - task_key: 2-1-Ingest_clientes
+          depends_on:
+            - task_key: 1-Preparacion_Ambiente
+          notebook_task:
+            notebook_path: ../src/2-1-Ingest_clientes.py
+
+        - task_key: 2-2-Ingest_hoteles
+          depends_on:
+            - task_key: 1-Preparacion_Ambiente
+          notebook_task:
+            notebook_path: ../src/2-2-Ingest_hoteles.py
+
+        - task_key: 2-3-Ingest_vuelos
+          depends_on:
+            - task_key: 1-Preparacion_Ambiente
+          notebook_task:
+            notebook_path: ../src/2-3-Ingest_vuelos.py
+
+        - task_key: 2-4-Ingest_reservas
+          depends_on:
+            - task_key: 2-1-Ingest_clientes
+            - task_key: 2-2-Ingest_hoteles
+            - task_key: 2-3-Ingest_vuelos
+          notebook_task:
+            notebook_path: ../src/2-4-Ingest_reservas.py
+
+        - task_key: 2-5-Ingest_pagos
+          depends_on:
+            - task_key: 2-4-Ingest_reservas
+          notebook_task:
+            notebook_path: ../src/2-5-Ingest_pagos.py
+
+        - task_key: 3-Transform
+          depends_on:
+            - task_key: 2-5-Ingest_pagos
+          notebook_task:
+            notebook_path: ../src/3-Transform.py
+
+        - task_key: 4-Load
+          depends_on:
+            - task_key: 3-Transform
+          notebook_task:
+            notebook_path: ../src/4-Load.py
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "5"
