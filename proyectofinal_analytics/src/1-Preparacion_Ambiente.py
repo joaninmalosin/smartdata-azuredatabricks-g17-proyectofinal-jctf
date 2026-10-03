@@ -17,7 +17,8 @@ dbutils.widgets.removeAll()
 
 # COMMAND ----------
 
-storageName = dbutils.widgets.get("storageName")
+storageName = dbutils.widgets.get("storageName");
+spark.sql("CREATE SCHEMA IF NOT EXISTS raw")
 
 # COMMAND ----------
 
@@ -74,10 +75,10 @@ storageName = dbutils.widgets.get("storageName")
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC DROP SCHEMA IF EXISTS catalog_dev.raw;
-# MAGIC DROP SCHEMA IF EXISTS catalog_dev.bronze;
-# MAGIC DROP SCHEMA IF EXISTS catalog_dev.silver;
-# MAGIC DROP SCHEMA IF EXISTS catalog_dev.golden;
+# MAGIC DROP SCHEMA IF EXISTS raw;
+# MAGIC DROP SCHEMA IF EXISTS bronze;
+# MAGIC DROP SCHEMA IF EXISTS silver;
+# MAGIC DROP SCHEMA IF EXISTS golden;
 
 # COMMAND ----------
 
@@ -88,10 +89,10 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE SCHEMA IF NOT EXISTS catalog_dev.raw;
-# MAGIC CREATE SCHEMA IF NOT EXISTS catalog_dev.bronze;
-# MAGIC CREATE SCHEMA IF NOT EXISTS catalog_dev.silver;
-# MAGIC CREATE SCHEMA IF NOT EXISTS catalog_dev.golden;
+# MAGIC CREATE SCHEMA IF NOT EXISTS raw;
+# MAGIC CREATE SCHEMA IF NOT EXISTS bronze;
+# MAGIC CREATE SCHEMA IF NOT EXISTS silver;
+# MAGIC CREATE SCHEMA IF NOT EXISTS golden;
 
 # COMMAND ----------
 
@@ -101,7 +102,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.bronze.clientes (
+# MAGIC CREATE TABLE IF NOT EXISTS bronze.clientes (
 # MAGIC     cliente_id string,
 # MAGIC     nombre string,
 # MAGIC     apellido string,
@@ -119,7 +120,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.bronze.hoteles (
+# MAGIC CREATE TABLE IF NOT EXISTS bronze.hoteles (
 # MAGIC     hotel_id string,
 # MAGIC     nombre_hotel string,
 # MAGIC     destino string,
@@ -137,7 +138,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.bronze.vuelos (
+# MAGIC CREATE TABLE IF NOT EXISTS bronze.vuelos (
 # MAGIC     vuelo_id string,
 # MAGIC     aerolinea string,
 # MAGIC     origen string,
@@ -158,7 +159,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.bronze.reservas (
+# MAGIC CREATE TABLE IF NOT EXISTS bronze.reservas (
 # MAGIC     id_reserva string,
 # MAGIC     id_cliente string,
 # MAGIC     id_vuelo string,
@@ -180,7 +181,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.bronze.pagos (
+# MAGIC CREATE TABLE IF NOT EXISTS bronze.pagos (
 # MAGIC     id_pago string,
 # MAGIC     id_reserva string,
 # MAGIC     id_cliente string,
@@ -203,7 +204,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.clientes (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.clientes (
 # MAGIC     cliente_id string,
 # MAGIC     nombre_completo string,
 # MAGIC     edad int,
@@ -221,7 +222,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.hoteles (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.hoteles (
 # MAGIC     hotel_id string,
 # MAGIC     nombre_hotel string,
 # MAGIC     destino string,
@@ -240,7 +241,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.vuelos (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.vuelos (
 # MAGIC     vuelo_id string,
 # MAGIC     aerolinea string,
 # MAGIC     origen string,
@@ -265,7 +266,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.reservas (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.reservas (
 # MAGIC     id_reserva string,
 # MAGIC     id_cliente string,
 # MAGIC     id_vuelo string,
@@ -290,7 +291,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.pagos (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.pagos (
 # MAGIC     id_pago string,
 # MAGIC     id_reserva string,
 # MAGIC     id_cliente string,
@@ -310,7 +311,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 
 # MAGIC %sql
 # MAGIC --- DROP TABLE IF EXISTS catalog_dev.silver.reservas_enriquecidas
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.silver.reservas_enriquecidas (
+# MAGIC CREATE TABLE IF NOT EXISTS silver.reservas_enriquecidas (
 # MAGIC     id_reserva string,
 # MAGIC     fecha_reserva timestamp,
 # MAGIC     fecha_salida timestamp,
@@ -371,7 +372,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.golden.dim_cliente (
+# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_cliente (
 # MAGIC     cliente_id string,
 # MAGIC     nombre_completo string,
 # MAGIC     edad int,
@@ -387,7 +388,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.golden.dim_destino (
+# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_destino (
 # MAGIC 	destino_codigo string,
 # MAGIC 	destino string
 # MAGIC )
@@ -397,7 +398,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.golden.dim_hotel (
+# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_hotel (
 # MAGIC 	hotel_id string,
 # MAGIC     nombre_hotel string,
 # MAGIC     destino_codigo string,
@@ -414,7 +415,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.golden.dim_vuelo(
+# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_vuelo(
 # MAGIC 	vuelo_id string,
 # MAGIC     aerolinea string,
 # MAGIC     origen string,
@@ -432,7 +433,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS catalog_dev.golden.dim_fecha(
+# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_fecha(
 # MAGIC 	fecha_key int,
 # MAGIC 	fecha timestamp,
 # MAGIC 	anio int,
@@ -451,7 +452,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.fact_reservas (
+# MAGIC CREATE OR REPLACE TABLE golden.fact_reservas (
 # MAGIC     id_reserva          string,
 # MAGIC     fecha_reserva_key   integer,
 # MAGIC     fecha_salida_key    integer,
@@ -480,7 +481,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.kpi_ventas_mensuales (
+# MAGIC CREATE OR REPLACE TABLE golden.kpi_ventas_mensuales (
 # MAGIC     anio int,
 # MAGIC     mes int,
 # MAGIC     nombre_mes string,
@@ -498,7 +499,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.kpi_destinos (
+# MAGIC CREATE OR REPLACE TABLE golden.kpi_destinos (
 # MAGIC     destino_codigo string,
 # MAGIC     destino string,
 # MAGIC     total_reservas int,
@@ -516,7 +517,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.kpi_clientes (
+# MAGIC CREATE OR REPLACE TABLE golden.kpi_clientes (
 # MAGIC     cliente_id string,
 # MAGIC     nombre_completo string,
 # MAGIC     segmento_cliente string,
@@ -534,7 +535,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.kpi_hoteles (
+# MAGIC CREATE OR REPLACE TABLE golden.kpi_hoteles (
 # MAGIC     hotel_id string,
 # MAGIC     nombre_hotel string,
 # MAGIC     destino string,
@@ -553,7 +554,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE catalog_dev.golden.kpi_vuelos (
+# MAGIC CREATE OR REPLACE TABLE golden.kpi_vuelos (
 # MAGIC     aerolinea string,
 # MAGIC     ruta string,
 # MAGIC     jornada string,
