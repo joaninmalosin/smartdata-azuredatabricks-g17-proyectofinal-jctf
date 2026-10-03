@@ -12,88 +12,117 @@ dbutils.widgets.removeAll()
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC create widget text storageName default "adlsproyectofinaljctfd01";
+#%sql
+#create widget text storageName default "adlsproyectofinaljctfd01";
+dbutils.widgets.text("container_raw", "raw")
+dbutils.widgets.text("container_metastore", "metastore")
+dbutils.widgets.text("catalog", "catalog_dev")
+dbutils.widgets.text("schema_bronze", "bronze")
+dbutils.widgets.text("schema_silver", "silver")
+dbutils.widgets.text("schema_golden", "golden")
+dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
 
 # COMMAND ----------
 
-storageName = dbutils.widgets.get("storageName");
+container_raw = dbutils.widgets.get("container_raw")
+container_metastore = dbutils.widgets.get("container_metastore")
+catalog = dbutils.widgets.get("catalog")
+schema_bronze = dbutils.widgets.get("schema_bronze")
+schema_silver = dbutils.widgets.get("schema_silver")
+schema_golden = dbutils.widgets.get("schema_golden")
+storageName = dbutils.widgets.get("storageName")
+
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-metastore`
-# MAGIC URL 'abfss://metastore@${storageName}.dfs.core.windows.net/'
-# MAGIC WITH (STORAGE CREDENTIAL `credential`)
-# MAGIC COMMENT 'Ubicación externa para las tablas metastore del Data Lake';
+spark.sql(f"""
+CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-metastore`
+URL 'abfss://{container_metastore}@{storageName}.dfs.core.windows.net/'
+WITH (STORAGE CREDENTIAL `credential`)
+COMMENT 'Ubicación externa para las tablas metastore del Data Lake'
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-raw`
-# MAGIC URL 'abfss://raw@${storageName}.dfs.core.windows.net/'
-# MAGIC WITH (STORAGE CREDENTIAL `credential`)
-# MAGIC COMMENT 'Ubicación externa para las tablas raw del Data Lake';
+spark.sql(f"""
+CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-raw`
+URL 'abfss://{container_raw}@{storageName}.dfs.core.windows.net/'
+WITH (STORAGE CREDENTIAL `credential`)
+COMMENT 'Ubicación externa para las tablas raw del Data Lake'
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-bronze`
-# MAGIC URL 'abfss://bronze@${storageName}.dfs.core.windows.net/'
-# MAGIC WITH (STORAGE CREDENTIAL `credential`)
-# MAGIC COMMENT 'Ubicación externa para las tablas bronze del Data Lake';
+spark.sql(f"""
+CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-bronze`
+URL 'abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/'
+WITH (STORAGE CREDENTIAL `credential`)
+COMMENT 'Ubicación externa para las tablas bronze del Data Lake'
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-silver`
-# MAGIC URL 'abfss://silver@${storageName}.dfs.core.windows.net/'
-# MAGIC WITH (STORAGE CREDENTIAL `credential`)
-# MAGIC COMMENT 'Ubicación externa para las tablas silver del Data Lake';
+spark.sql(f"""
+CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-silver`
+URL 'abfss://{schema_silver}@{storageName}.dfs.core.windows.net/'
+WITH (STORAGE CREDENTIAL `credential`)
+COMMENT 'Ubicación externa para las tablas silver del Data Lake'
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-golden`
-# MAGIC URL 'abfss://golden@${storageName}.dfs.core.windows.net/'
-# MAGIC WITH (STORAGE CREDENTIAL `credential`)
-# MAGIC COMMENT 'Ubicación externa para las tablas golden del Data Lake';
+spark.sql(f"""
+CREATE EXTERNAL LOCATION IF NOT EXISTS `exlt-golden`
+URL 'abfss://{schema_golden}@{storageName}.dfs.core.windows.net/'
+WITH (STORAGE CREDENTIAL `credential`)
+COMMENT 'Ubicación externa para las tablas golden del Data Lake'
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC DROP CATALOG IF EXISTS catalog_dev CASCADE;
+spark.sql(f"DROP CATALOG IF EXISTS {catalog} CASCADE")
 
 # COMMAND ----------
 
 spark.sql(f"""
 CREATE CATALOG IF NOT EXISTS `catalog_dev`
-MANAGED LOCATION 'abfss://metastore@{storageName}.dfs.core.windows.net/'
+MANAGED LOCATION 'abfss://{container_metastore}@{storageName}.dfs.core.windows.net/'
 COMMENT 'Catalogo para la arquitectura medallion del ambiente de dev'
 """)
 
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC DROP SCHEMA IF EXISTS raw CASCADE;
-# MAGIC DROP SCHEMA IF EXISTS bronze CASCADE;
-# MAGIC DROP SCHEMA IF EXISTS silver CASCADE;
-# MAGIC DROP SCHEMA IF EXISTS golden CASCADE;
+spark.sql(f"DROP SCHEMA IF EXISTS {container_raw} CASCADE")
+spark.sql(f"DROP SCHEMA IF EXISTS {schema_bronze} CASCADE")
+spark.sql(f"DROP SCHEMA IF EXISTS {schema_silver} CASCADE")
+spark.sql(f"DROP SCHEMA IF EXISTS {schema_golden} CASCADE")
+"""
+DROP SCHEMA IF EXISTS raw CASCADE;
+DROP SCHEMA IF EXISTS bronze CASCADE;
+DROP SCHEMA IF EXISTS silver CASCADE;
+DROP SCHEMA IF EXISTS golden CASCADE;
+"""
 
 # COMMAND ----------
 
-dbutils.fs.rm(f"abfss://bronze@{storageName}.dfs.core.windows.net/",True)
-dbutils.fs.rm(f"abfss://silver@{storageName}.dfs.core.windows.net/",True)
-dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
+dbutils.fs.rm(f"abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/",True)
+dbutils.fs.rm(f"abfss://{schema_silver}@{storageName}.dfs.core.windows.net/",True)
+dbutils.fs.rm(f"abfss://{schema_golden}@{storageName}.dfs.core.windows.net/",True)
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE SCHEMA IF NOT EXISTS raw;
-# MAGIC CREATE SCHEMA IF NOT EXISTS bronze;
-# MAGIC CREATE SCHEMA IF NOT EXISTS silver;
-# MAGIC CREATE SCHEMA IF NOT EXISTS golden;
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {container_raw}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_bronze}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_silver}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_golden}")
+"""
+%sql
+CREATE SCHEMA IF NOT EXISTS raw;
+CREATE SCHEMA IF NOT EXISTS bronze;
+CREATE SCHEMA IF NOT EXISTS silver;
+CREATE SCHEMA IF NOT EXISTS golden;
+"""
 
 # COMMAND ----------
 
@@ -103,7 +132,7 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS bronze.clientes (
+CREATE TABLE IF NOT EXISTS {schema_bronze}.clientes (
     cliente_id string,
     nombre string,
     apellido string,
@@ -116,13 +145,13 @@ CREATE TABLE IF NOT EXISTS bronze.clientes (
     fecha_registro timestamp
 )
 USING DELTA
-LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/clientes"
+LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/clientes"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS bronze.hoteles (
+CREATE TABLE IF NOT EXISTS {schema_bronze}.hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
@@ -135,13 +164,13 @@ CREATE TABLE IF NOT EXISTS bronze.hoteles (
     calificacion double
 )
 USING DELTA
-LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/hoteles"
+LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/hoteles"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS bronze.vuelos (
+CREATE TABLE IF NOT EXISTS {schema_bronze}.vuelos (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -157,13 +186,13 @@ CREATE TABLE IF NOT EXISTS bronze.vuelos (
     estatus string
 )
 USING DELTA
-LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/vuelos"
+LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/vuelos"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS bronze.reservas (
+CREATE TABLE IF NOT EXISTS {schema_bronze}.reservas (
     id_reserva string,
     id_cliente string,
     id_vuelo string,
@@ -180,13 +209,13 @@ CREATE TABLE IF NOT EXISTS bronze.reservas (
     estado_reserva string
 )
 USING DELTA
-LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/reservas"
+LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/reservas"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS bronze.pagos (
+CREATE TABLE IF NOT EXISTS {schema_bronze}.pagos (
     id_pago string,
     id_reserva string,
     id_cliente string,
@@ -199,7 +228,7 @@ CREATE TABLE IF NOT EXISTS bronze.pagos (
     referencia_pago string
 )
 USING DELTA
-LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/pagos"
+LOCATION "abfss://{schema_bronze}@{storageName}.dfs.core.windows.net/pagos"
 """)
 
 # COMMAND ----------
@@ -210,7 +239,7 @@ LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/pagos"
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.clientes (
+CREATE TABLE IF NOT EXISTS {schema_silver}.clientes (
     cliente_id string,
     nombre_completo string,
     edad int,
@@ -223,13 +252,13 @@ CREATE TABLE IF NOT EXISTS silver.clientes (
     calidad_registro string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/clientes"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/clientes"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.hoteles (
+CREATE TABLE IF NOT EXISTS {schema_silver}.hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
@@ -243,13 +272,13 @@ CREATE TABLE IF NOT EXISTS silver.hoteles (
     nivel_calificacion string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/hoteles"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/hoteles"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.vuelos (
+CREATE TABLE IF NOT EXISTS {schema_silver}.vuelos (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -269,13 +298,13 @@ CREATE TABLE IF NOT EXISTS silver.vuelos (
     jornada string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/vuelos"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/vuelos"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.reservas (
+CREATE TABLE IF NOT EXISTS {schema_silver}.reservas (
     id_reserva string,
     id_cliente string,
     id_vuelo string,
@@ -295,13 +324,13 @@ CREATE TABLE IF NOT EXISTS silver.reservas (
     validacion_fechas string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/reservas"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/reservas"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.pagos (
+CREATE TABLE IF NOT EXISTS {schema_silver}.pagos (
     id_pago string,
     id_reserva string,
     id_cliente string,
@@ -315,13 +344,13 @@ CREATE TABLE IF NOT EXISTS silver.pagos (
     calidad_pago string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/pagos"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/pagos"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS silver.reservas_enriquecidas (
+CREATE TABLE IF NOT EXISTS {schema_silver}.reservas_enriquecidas (
     id_reserva string,
     fecha_reserva timestamp,
     fecha_salida timestamp,
@@ -372,7 +401,7 @@ CREATE TABLE IF NOT EXISTS silver.reservas_enriquecidas (
     estado_pago string
 )
 USING DELTA
-LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/reservas_enriquecidas"
+LOCATION "abfss://{schema_silver}@{storageName}.dfs.core.windows.net/reservas_enriquecidas"
 """)
 
 # COMMAND ----------
@@ -383,7 +412,7 @@ LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/reservas_enriquecida
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.dim_cliente (
+CREATE TABLE IF NOT EXISTS {schema_golden}.dim_cliente (
     cliente_id string,
     nombre_completo string,
     edad int,
@@ -394,24 +423,24 @@ CREATE TABLE IF NOT EXISTS golden.dim_cliente (
     segmento_cliente string
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_cliente"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_cliente"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.dim_destino (
+CREATE TABLE IF NOT EXISTS {schema_golden}.dim_destino (
     destino_codigo string,
 	destino string
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_destino"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_destino"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.dim_hotel (
+CREATE TABLE IF NOT EXISTS {schema_golden}.dim_hotel (
     hotel_id string,
     nombre_hotel string,
     destino_codigo string,
@@ -423,13 +452,13 @@ CREATE TABLE IF NOT EXISTS golden.dim_hotel (
     nivel_calificacion_hotel string
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_hotel"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_hotel"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.dim_vuelo (
+CREATE TABLE IF NOT EXISTS {schema_golden}.dim_vuelo (
     vuelo_id string,
     aerolinea string,
     origen string,
@@ -442,13 +471,13 @@ CREATE TABLE IF NOT EXISTS golden.dim_vuelo (
     jornada string
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_vuelo"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_vuelo"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.dim_fecha (
+CREATE TABLE IF NOT EXISTS {schema_golden}.dim_fecha (
     fecha_key int,
 	fecha timestamp,
 	anio int,
@@ -462,13 +491,13 @@ CREATE TABLE IF NOT EXISTS golden.dim_fecha (
 	es_fin_de_semana boolean
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_fecha"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/dim_fecha"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.fact_reservas (
+CREATE TABLE IF NOT EXISTS {schema_golden}.fact_reservas (
     id_reserva          string,
     fecha_reserva_key   integer,
     fecha_salida_key    integer,
@@ -492,13 +521,13 @@ CREATE TABLE IF NOT EXISTS golden.fact_reservas (
     estado_pago         string
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/fact_reservas"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/fact_reservas"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.kpi_ventas_mensuales (
+CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_ventas_mensuales (
     anio int,
     mes int,
     nombre_mes string,
@@ -510,13 +539,13 @@ CREATE TABLE IF NOT EXISTS golden.kpi_ventas_mensuales (
     pagos_recibidos double
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_ventas_mensuales"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_ventas_mensuales"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.kpi_destinos (
+CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_destinos (
     destino_codigo string,
     destino string,
     total_reservas int,
@@ -528,13 +557,13 @@ CREATE TABLE IF NOT EXISTS golden.kpi_destinos (
     descuento_promedio double
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_destinos"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_destinos"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.kpi_clientes (
+CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_clientes (
     cliente_id string,
     nombre_completo string,
     segmento_cliente string,
@@ -547,13 +576,13 @@ CREATE TABLE IF NOT EXISTS golden.kpi_clientes (
     ultima_reserva timestamp
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_clientes"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_clientes"
 """)
 
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS golden.kpi_hoteles (
+CREATE TABLE IF NOT EXISTS {schema_golden}.kpi_hoteles (
     hotel_id string,
     nombre_hotel string,
     destino string,
@@ -567,5 +596,5 @@ CREATE TABLE IF NOT EXISTS golden.kpi_hoteles (
     promedio_noches double
 )
 USING DELTA
-LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_hoteles"
+LOCATION "abfss://{schema_golden}@{storageName}.dfs.core.windows.net/kpi_hoteles"
 """)
