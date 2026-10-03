@@ -112,10 +112,11 @@ dbutils.fs.rm(f"abfss://{schema_golden}@{storageName}.dfs.core.windows.net/",Tru
 
 # COMMAND ----------
 
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {container_raw}")
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_bronze}")
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_silver}")
-spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_golden}")
+spark.sql("CREATE SCHEMA IF NOT EXISTS catalog_dev.bronze")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{container_raw}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema_bronze}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema_silver}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema_golden}")
 """
 %sql
 CREATE SCHEMA IF NOT EXISTS raw;
@@ -132,7 +133,7 @@ CREATE SCHEMA IF NOT EXISTS golden;
 # COMMAND ----------
 
 spark.sql(f"""
-CREATE TABLE IF NOT EXISTS {schema_bronze}.clientes (
+CREATE TABLE IF NOT EXISTS {catalog}.{schema_bronze}.clientes (
     cliente_id string,
     nombre string,
     apellido string,
