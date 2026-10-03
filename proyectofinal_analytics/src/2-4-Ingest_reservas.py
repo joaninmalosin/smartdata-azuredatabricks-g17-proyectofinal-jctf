@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 dbutils.widgets.removeAll()
 
 # COMMAND ----------
@@ -8,19 +12,26 @@ from pyspark.sql.types import *
 
 # COMMAND ----------
 
-dbutils.widgets.text("container", "raw")
-dbutils.widgets.text("catalogo", "catalog_dev")
-dbutils.widgets.text("esquema", "bronze")
+dbutils.widgets.text("container_raw", "raw")
+dbutils.widgets.text("container_metastore", "metastore")
+dbutils.widgets.text("catalog", "catalog_dev")
+dbutils.widgets.text("schema_bronze", "bronze")
+dbutils.widgets.text("schema_silver", "silver")
+dbutils.widgets.text("schema_golden", "golden")
 dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
-
-# COMMAND ----------
-
-container = dbutils.widgets.get("container")
-catalogo = dbutils.widgets.get("catalogo")
-esquema = dbutils.widgets.get("esquema")
+container_raw = dbutils.widgets.get("container_raw")
+catalog = dbutils.widgets.get("catalog")
+schema_bronze = dbutils.widgets.get("schema_bronze")
+schema_silver = dbutils.widgets.get("schema_silver")
+schema_golden = dbutils.widgets.get("schema_golden")
 storageName = dbutils.widgets.get("storageName")
 
-ruta = f"abfss://{container}@{storageName}.dfs.core.windows.net/IngestProyectofinalSmartDataG17/reservas.csv"
+
+spark.sql(f"USE CATALOG {catalog}")
+spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_bronze}")
+spark.sql(f"USE SCHEMA {schema_bronze}")
+
+ruta = f"abfss://{container_raw}@{storageName}.dfs.core.windows.net/IngestProyectofinalSmartDataG17/reservas.csv"
 
 # COMMAND ----------
 
@@ -71,4 +82,4 @@ df_reserva_final = df_reserva_read.select(
 
 # COMMAND ----------
 
-df_reserva_final.write.mode("overwrite").insertInto(f"{catalogo}.{esquema}.reservas")
+df_reserva_final.write.mode("overwrite").insertInto(f"{catalog}.{schema_bronze}.reservas")
