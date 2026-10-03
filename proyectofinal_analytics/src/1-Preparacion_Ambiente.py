@@ -102,100 +102,105 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS bronze.clientes (
-# MAGIC     cliente_id string,
-# MAGIC     nombre string,
-# MAGIC     apellido string,
-# MAGIC     edad int,
-# MAGIC     ciudad string,
-# MAGIC     estado string,
-# MAGIC     pais string,
-# MAGIC     email string,
-# MAGIC     segmento_cliente string,
-# MAGIC     fecha_registro timestamp
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://bronze@${storageName}.dfs.core.windows.net/clientes"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS bronze.clientes (
+    cliente_id string,
+    nombre string,
+    apellido string,
+    edad int,
+    ciudad string,
+    estado string,
+    pais string,
+    email string,
+    segmento_cliente string,
+    fecha_registro timestamp
+)
+USING DELTA
+LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/clientes"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS bronze.hoteles (
-# MAGIC     hotel_id string,
-# MAGIC     nombre_hotel string,
-# MAGIC     destino string,
-# MAGIC     destino_codigo string,
-# MAGIC     pais string,
-# MAGIC     categoria_estrellas int,
-# MAGIC     regimen string,
-# MAGIC     habitaciones int,
-# MAGIC     precio_noche double,
-# MAGIC     calificacion double
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://bronze@${storageName}.dfs.core.windows.net/hoteles"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS bronze.hoteles (
+    hotel_id string,
+    nombre_hotel string,
+    destino string,
+    destino_codigo string,
+    pais string,
+    categoria_estrellas int,
+    regimen string,
+    habitaciones int,
+    precio_noche double,
+    calificacion double
+)
+USING DELTA
+LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/hoteles"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS bronze.vuelos (
-# MAGIC     vuelo_id string,
-# MAGIC     aerolinea string,
-# MAGIC     origen string,
-# MAGIC     destino_codigo string,
-# MAGIC     destino string,
-# MAGIC     pais_destino string,
-# MAGIC     fecha_salida timestamp,
-# MAGIC     hora_salida string,
-# MAGIC     fecha_llegada timestamp,
-# MAGIC     hora_llegada string,
-# MAGIC     precio double,
-# MAGIC     equipaje string,
-# MAGIC     estatus string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://bronze@${storageName}.dfs.core.windows.net/vuelos"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS bronze.vuelos (
+    vuelo_id string,
+    aerolinea string,
+    origen string,
+    destino_codigo string,
+    destino string,
+    pais_destino string,
+    fecha_salida timestamp,
+    hora_salida string,
+    fecha_llegada timestamp,
+    hora_llegada string,
+    precio double,
+    equipaje string,
+    estatus string
+)
+USING DELTA
+LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/vuelos"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS bronze.reservas (
-# MAGIC     id_reserva string,
-# MAGIC     id_cliente string,
-# MAGIC     id_vuelo string,
-# MAGIC     id_hotel string,
-# MAGIC     fecha_reserva timestamp,
-# MAGIC     fecha_salida timestamp,
-# MAGIC     fecha_regreso timestamp,
-# MAGIC     destino string,
-# MAGIC     tipo_reserva string,
-# MAGIC     num_personas int,
-# MAGIC     descuento_pct int,
-# MAGIC     monto_total double,
-# MAGIC     moneda string,
-# MAGIC     estado_reserva string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://bronze@${storageName}.dfs.core.windows.net/reservas"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS bronze.reservas (
+    id_reserva string,
+    id_cliente string,
+    id_vuelo string,
+    id_hotel string,
+    fecha_reserva timestamp,
+    fecha_salida timestamp,
+    fecha_regreso timestamp,
+    destino string,
+    tipo_reserva string,
+    num_personas int,
+    descuento_pct int,
+    monto_total double,
+    moneda string,
+    estado_reserva string
+)
+USING DELTA
+LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/reservas"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS bronze.pagos (
-# MAGIC     id_pago string,
-# MAGIC     id_reserva string,
-# MAGIC     id_cliente string,
-# MAGIC     fecha_pago timestamp,
-# MAGIC     monto_pago double,
-# MAGIC     moneda string,
-# MAGIC     metodo_pago string,
-# MAGIC     tipo_pago string,
-# MAGIC     estado_pago string,
-# MAGIC     referencia_pago string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://bronze@${storageName}.dfs.core.windows.net/pagos"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS bronze.pagos (
+    id_pago string,
+    id_reserva string,
+    id_cliente string,
+    fecha_pago timestamp,
+    monto_pago double,
+    moneda string,
+    metodo_pago string,
+    tipo_pago string,
+    estado_pago string,
+    referencia_pago string
+)
+USING DELTA
+LOCATION "abfss://bronze@{storageName}.dfs.core.windows.net/pagos"
+""")
 
 # COMMAND ----------
 
@@ -204,166 +209,171 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS silver.clientes (
-# MAGIC     cliente_id string,
-# MAGIC     nombre_completo string,
-# MAGIC     edad int,
-# MAGIC     ciudad string,
-# MAGIC     estado string,
-# MAGIC     pais string,
-# MAGIC     email string,
-# MAGIC     segmento_cliente string,
-# MAGIC     fecha_registro timestamp,
-# MAGIC     calidad_registro string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/clientes"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.clientes (
+    cliente_id string,
+    nombre_completo string,
+    edad int,
+    ciudad string,
+    estado string,
+    pais string,
+    email string,
+    segmento_cliente string,
+    fecha_registro timestamp,
+    calidad_registro string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/clientes"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS silver.hoteles (
-# MAGIC     hotel_id string,
-# MAGIC     nombre_hotel string,
-# MAGIC     destino string,
-# MAGIC     destino_codigo string,
-# MAGIC     pais string,
-# MAGIC     categoria_estrellas int,
-# MAGIC     regimen string,
-# MAGIC     habitaciones int,
-# MAGIC     precio_noche double,
-# MAGIC     calificacion double,
-# MAGIC     nivel_calificacion string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/hoteles"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.hoteles (
+    hotel_id string,
+    nombre_hotel string,
+    destino string,
+    destino_codigo string,
+    pais string,
+    categoria_estrellas int,
+    regimen string,
+    habitaciones int,
+    precio_noche double,
+    calificacion double,
+    nivel_calificacion string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/hoteles"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS silver.vuelos (
-# MAGIC     vuelo_id string,
-# MAGIC     aerolinea string,
-# MAGIC     origen string,
-# MAGIC     destino_codigo string,
-# MAGIC     destino string,
-# MAGIC     pais_destino string,
-# MAGIC     fecha_salida timestamp,
-# MAGIC     hora_salida string,
-# MAGIC     fecha_llegada timestamp,
-# MAGIC     hora_llegada string,
-# MAGIC     precio double,
-# MAGIC     equipaje string,
-# MAGIC     estatus string,
-# MAGIC     ruta string,
-# MAGIC     duracion_minutos int,
-# MAGIC     calidad_precio string,
-# MAGIC     jornada string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/vuelos"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.vuelos (
+    vuelo_id string,
+    aerolinea string,
+    origen string,
+    destino_codigo string,
+    destino string,
+    pais_destino string,
+    fecha_salida timestamp,
+    hora_salida string,
+    fecha_llegada timestamp,
+    hora_llegada string,
+    precio double,
+    equipaje string,
+    estatus string,
+    ruta string,
+    duracion_minutos int,
+    calidad_precio string,
+    jornada string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/vuelos"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS silver.reservas (
-# MAGIC     id_reserva string,
-# MAGIC     id_cliente string,
-# MAGIC     id_vuelo string,
-# MAGIC     id_hotel string,
-# MAGIC     fecha_reserva timestamp,
-# MAGIC     fecha_salida timestamp,
-# MAGIC     fecha_regreso timestamp,
-# MAGIC     destino string,
-# MAGIC     tipo_reserva string,
-# MAGIC     num_personas int,
-# MAGIC     descuento_pct int,
-# MAGIC     monto_total double,
-# MAGIC     moneda string,
-# MAGIC     estado_reserva string,
-# MAGIC     numero_noches int,
-# MAGIC     monto_por_persona double,
-# MAGIC     validacion_fechas string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/reservas"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.reservas (
+    id_reserva string,
+    id_cliente string,
+    id_vuelo string,
+    id_hotel string,
+    fecha_reserva timestamp,
+    fecha_salida timestamp,
+    fecha_regreso timestamp,
+    destino string,
+    tipo_reserva string,
+    num_personas int,
+    descuento_pct int,
+    monto_total double,
+    moneda string,
+    estado_reserva string,
+    numero_noches int,
+    monto_por_persona double,
+    validacion_fechas string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/reservas"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS silver.pagos (
-# MAGIC     id_pago string,
-# MAGIC     id_reserva string,
-# MAGIC     id_cliente string,
-# MAGIC     fecha_pago timestamp,
-# MAGIC     monto_pago double,
-# MAGIC     moneda string,
-# MAGIC     metodo_pago string,
-# MAGIC     tipo_pago string,
-# MAGIC     estado_pago string,
-# MAGIC     referencia_pago string,
-# MAGIC     calidad_pago string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/pagos"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.pagos (
+    id_pago string,
+    id_reserva string,
+    id_cliente string,
+    fecha_pago timestamp,
+    monto_pago double,
+    moneda string,
+    metodo_pago string,
+    tipo_pago string,
+    estado_pago string,
+    referencia_pago string,
+    calidad_pago string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/pagos"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC --- DROP TABLE IF EXISTS catalog_dev.silver.reservas_enriquecidas
-# MAGIC CREATE TABLE IF NOT EXISTS silver.reservas_enriquecidas (
-# MAGIC     id_reserva string,
-# MAGIC     fecha_reserva timestamp,
-# MAGIC     fecha_salida timestamp,
-# MAGIC     fecha_regreso timestamp,
-# MAGIC     destino string,
-# MAGIC     tipo_reserva string,
-# MAGIC     num_personas int,
-# MAGIC     numero_noches int,
-# MAGIC     descuento_pct int,
-# MAGIC     monto_total double,
-# MAGIC     moneda string,
-# MAGIC     estado_reserva string,
-# MAGIC     monto_por_persona double,
-# MAGIC     ---CLIENTE
-# MAGIC     cliente_id string,
-# MAGIC     nombre_completo string,
-# MAGIC     edad int,
-# MAGIC     ciudad_cliente string,
-# MAGIC     estado_cliente string,
-# MAGIC     pais_cliente string,
-# MAGIC     email string,
-# MAGIC     segmento_cliente string,
-# MAGIC     ---VUELOS
-# MAGIC     vuelo_id string,
-# MAGIC     aerolinea string,
-# MAGIC     origen string,
-# MAGIC     destino_codigo string,
-# MAGIC     fecha_salida_vuelo timestamp,
-# MAGIC     precio_vuelo double,
-# MAGIC     equipaje string,
-# MAGIC     duracion_minutos int,
-# MAGIC     ruta string,
-# MAGIC     jornada string,
-# MAGIC     ---HOTELES
-# MAGIC     hotel_id string,
-# MAGIC     nombre_hotel string,
-# MAGIC     categoria_estrellas int,
-# MAGIC     regimen string,
-# MAGIC     precio_noche double,
-# MAGIC     calificacion_hotel double,
-# MAGIC     nivel_calificacion_hotel string,
-# MAGIC     ---PAGOS
-# MAGIC     id_pago string,
-# MAGIC     fecha_pago timestamp,
-# MAGIC     monto_pago double,
-# MAGIC     metodo_pago string,
-# MAGIC     tipo_pago string,
-# MAGIC     estado_pago string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://silver@${storageName}.dfs.core.windows.net/reservas_enriquecidas"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS silver.reservas_enriquecidas (
+    id_reserva string,
+    fecha_reserva timestamp,
+    fecha_salida timestamp,
+    fecha_regreso timestamp,
+    destino string,
+    tipo_reserva string,
+    num_personas int,
+    numero_noches int,
+    descuento_pct int,
+    monto_total double,
+    moneda string,
+    estado_reserva string,
+    monto_por_persona double,
+    ---CLIENTE
+    cliente_id string,
+    nombre_completo string,
+    edad int,
+    ciudad_cliente string,
+    estado_cliente string,
+    pais_cliente string,
+    email string,
+    segmento_cliente string,
+    ---VUELOS
+    vuelo_id string,
+    aerolinea string,
+    origen string,
+    destino_codigo string,
+    fecha_salida_vuelo timestamp,
+    precio_vuelo double,
+    equipaje string,
+    duracion_minutos int,
+    ruta string,
+    jornada string,
+    ---HOTELES
+    hotel_id string,
+    nombre_hotel string,
+    categoria_estrellas int,
+    regimen string,
+    precio_noche double,
+    calificacion_hotel double,
+    nivel_calificacion_hotel string,
+    ---PAGOS
+    id_pago string,
+    fecha_pago timestamp,
+    monto_pago double,
+    metodo_pago string,
+    tipo_pago string,
+    estado_pago string
+)
+USING DELTA
+LOCATION "abfss://silver@{storageName}.dfs.core.windows.net/reservas_enriquecidas"
+""")
 
 # COMMAND ----------
 
@@ -372,199 +382,190 @@ dbutils.fs.rm(f"abfss://golden@{storageName}.dfs.core.windows.net/",True)
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_cliente (
-# MAGIC     cliente_id string,
-# MAGIC     nombre_completo string,
-# MAGIC     edad int,
-# MAGIC     ciudad_cliente string,
-# MAGIC     estado_cliente string,
-# MAGIC     pais_cliente string,
-# MAGIC     email string,
-# MAGIC     segmento_cliente string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/dim_cliente"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.dim_cliente (
+    cliente_id string,
+    nombre_completo string,
+    edad int,
+    ciudad_cliente string,
+    estado_cliente string,
+    pais_cliente string,
+    email string,
+    segmento_cliente string
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_cliente"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_destino (
-# MAGIC 	destino_codigo string,
-# MAGIC 	destino string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/dim_destino"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.dim_destino (
+    destino_codigo string,
+	destino string
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_destino"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_hotel (
-# MAGIC 	hotel_id string,
-# MAGIC     nombre_hotel string,
-# MAGIC     destino_codigo string,
-# MAGIC     destino string,
-# MAGIC     categoria_estrellas int,
-# MAGIC     regimen string,
-# MAGIC     precio_noche double,
-# MAGIC     calificacion_hotel double,
-# MAGIC     nivel_calificacion_hotel string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/dim_hotel"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.dim_hotel (
+    hotel_id string,
+    nombre_hotel string,
+    destino_codigo string,
+    destino string,
+    categoria_estrellas int,
+    regimen string,
+    precio_noche double,
+    calificacion_hotel double,
+    nivel_calificacion_hotel string
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_hotel"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_vuelo(
-# MAGIC 	vuelo_id string,
-# MAGIC     aerolinea string,
-# MAGIC     origen string,
-# MAGIC     destino_codigo string,
-# MAGIC     fecha_salida_vuelo timestamp,
-# MAGIC     precio_vuelo double,
-# MAGIC     equipaje string,
-# MAGIC     duracion_minutos int,
-# MAGIC     ruta string,
-# MAGIC     jornada string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/dim_vuelo"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.dim_vuelo (
+    vuelo_id string,
+    aerolinea string,
+    origen string,
+    destino_codigo string,
+    fecha_salida_vuelo timestamp,
+    precio_vuelo double,
+    equipaje string,
+    duracion_minutos int,
+    ruta string,
+    jornada string
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_vuelo"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE TABLE IF NOT EXISTS golden.dim_fecha(
-# MAGIC 	fecha_key int,
-# MAGIC 	fecha timestamp,
-# MAGIC 	anio int,
-# MAGIC 	trimestre int,
-# MAGIC 	mes int,
-# MAGIC 	nombre_mes string,
-# MAGIC 	semana int,
-# MAGIC 	dia int,
-# MAGIC 	dia_semana int,
-# MAGIC 	nombre_dia string,
-# MAGIC 	es_fin_de_semana boolean
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/dim_fecha"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.dim_fecha (
+    fecha_key int,
+	fecha timestamp,
+	anio int,
+	trimestre int,
+	mes int,
+	nombre_mes string,
+	semana int,
+	dia int,
+	dia_semana int,
+	nombre_dia string,
+	es_fin_de_semana boolean
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/dim_fecha"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.fact_reservas (
-# MAGIC     id_reserva          string,
-# MAGIC     fecha_reserva_key   integer,
-# MAGIC     fecha_salida_key    integer,
-# MAGIC     cliente_id          string,
-# MAGIC     vuelo_id            string,
-# MAGIC     hotel_id            string,
-# MAGIC     destino_codigo      string,
-# MAGIC     tipo_reserva        string,
-# MAGIC     num_personas        integer,
-# MAGIC     descuento_pct       decimal(5,2),
-# MAGIC     monto_total         decimal(18,2),
-# MAGIC     monto_por_persona   decimal(18,2),
-# MAGIC     moneda              string,
-# MAGIC     estado_reserva      string,
-# MAGIC     numero_noches       integer,
-# MAGIC     precio_vuelo        decimal(18,2),
-# MAGIC     precio_noche        decimal(18,2),
-# MAGIC     duracion_minutos    integer,
-# MAGIC     calificacion_hotel  decimal(3,1),
-# MAGIC     monto_pago          decimal(18,2),
-# MAGIC     estado_pago         string
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/fact_reservas"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.fact_reservas (
+    id_reserva          string,
+    fecha_reserva_key   integer,
+    fecha_salida_key    integer,
+    cliente_id          string,
+    vuelo_id            string,
+    hotel_id            string,
+    destino_codigo      string,
+    tipo_reserva        string,
+    num_personas        integer,
+    descuento_pct       decimal(5,2),
+    monto_total         decimal(18,2),
+    monto_por_persona   decimal(18,2),
+    moneda              string,
+    estado_reserva      string,
+    numero_noches       integer,
+    precio_vuelo        decimal(18,2),
+    precio_noche        decimal(18,2),
+    duracion_minutos    integer,
+    calificacion_hotel  decimal(3,1),
+    monto_pago          decimal(18,2),
+    estado_pago         string
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/fact_reservas"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.kpi_ventas_mensuales (
-# MAGIC     anio int,
-# MAGIC     mes int,
-# MAGIC     nombre_mes string,
-# MAGIC     total_reservas int,
-# MAGIC     total_viajeros int,
-# MAGIC     ventas_totales double,
-# MAGIC     ticket_promedio double,
-# MAGIC     gasto_promedio_persona double,
-# MAGIC     pagos_recibidos double
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/kpi_ventas_mensuales"
-# MAGIC
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.kpi_ventas_mensuales (
+    anio int,
+    mes int,
+    nombre_mes string,
+    total_reservas int,
+    total_viajeros int,
+    ventas_totales double,
+    ticket_promedio double,
+    gasto_promedio_persona double,
+    pagos_recibidos double
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_ventas_mensuales"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.kpi_destinos (
-# MAGIC     destino_codigo string,
-# MAGIC     destino string,
-# MAGIC     total_reservas int,
-# MAGIC     total_viajeros int,
-# MAGIC     ventas_totales double,
-# MAGIC     ticket_promedio double,
-# MAGIC     gasto_promedio_persona double,
-# MAGIC     promedio_noches double,
-# MAGIC     descuento_promedio double
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/kpi_destinos"
-# MAGIC
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.kpi_destinos (
+    destino_codigo string,
+    destino string,
+    total_reservas int,
+    total_viajeros int,
+    ventas_totales double,
+    ticket_promedio double,
+    gasto_promedio_persona double,
+    promedio_noches double,
+    descuento_promedio double
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_destinos"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.kpi_clientes (
-# MAGIC     cliente_id string,
-# MAGIC     nombre_completo string,
-# MAGIC     segmento_cliente string,
-# MAGIC     ciudad_cliente string,
-# MAGIC     total_reservas int,
-# MAGIC     total_viajeros int,
-# MAGIC     gasto_total double,
-# MAGIC     ticket_promedio double,
-# MAGIC     primera_reserva timestamp,
-# MAGIC     ultima_reserva timestamp
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/kpi_clientes"
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.kpi_clientes (
+    cliente_id string,
+    nombre_completo string,
+    segmento_cliente string,
+    ciudad_cliente string,
+    total_reservas int,
+    total_viajeros int,
+    gasto_total double,
+    ticket_promedio double,
+    primera_reserva timestamp,
+    ultima_reserva timestamp
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_clientes"
+""")
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.kpi_hoteles (
-# MAGIC     hotel_id string,
-# MAGIC     nombre_hotel string,
-# MAGIC     destino string,
-# MAGIC     categoria_estrellas int,
-# MAGIC     regimen string,
-# MAGIC     total_reservas int,
-# MAGIC     total_huespedes int,
-# MAGIC     ventas_totales double,
-# MAGIC     precio_promedio_noche double,
-# MAGIC     calificacion_promedio double,
-# MAGIC     promedio_noches double
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/kpi_hoteles"
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC CREATE OR REPLACE TABLE golden.kpi_vuelos (
-# MAGIC     aerolinea string,
-# MAGIC     ruta string,
-# MAGIC     jornada string,
-# MAGIC     reservas int,
-# MAGIC     pasajeros int,
-# MAGIC     precio_promedio double,
-# MAGIC     duracion_promedio double,
-# MAGIC     ticket_promedio double
-# MAGIC )
-# MAGIC USING DELTA
-# MAGIC LOCATION "abfss://golden@${storageName}.dfs.core.windows.net/kpi_vuelos"
-# MAGIC
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS golden.kpi_hoteles (
+    hotel_id string,
+    nombre_hotel string,
+    destino string,
+    categoria_estrellas int,
+    regimen string,
+    total_reservas int,
+    total_huespedes int,
+    ventas_totales double,
+    precio_promedio_noche double,
+    calificacion_promedio double,
+    promedio_noches double
+)
+USING DELTA
+LOCATION "abfss://golden@{storageName}.dfs.core.windows.net/kpi_hoteles"
+""")
