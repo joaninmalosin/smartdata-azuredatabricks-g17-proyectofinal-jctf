@@ -1,0 +1,33 @@
+name: Deploy bundle a produccion (dtbrsmartp01)
+
+concurrency:
+  group: prod-proyectofinal-analytics
+  cancel-in-progress: false
+on:
+  push:
+    branches:
+    - main
+    paths:
+      - "proyectofinal_analytics/**"
+      - ".github/workflows/prod_deployment.yml"
+
+jobs:
+  deploy:
+    name: Validar y desplegar
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: proyectofinal_analytics
+    env:
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN_PROD }}
+      DATABRICKS_BUNDLE_ENV: prod
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@main
+
+      - name: Validar bundle
+        run: databricks bundle validate
+
+      - name: Desplegar bundle
+        run: databricks bundle deploy
