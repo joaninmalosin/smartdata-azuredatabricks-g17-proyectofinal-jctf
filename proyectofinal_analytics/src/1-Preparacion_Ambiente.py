@@ -16,17 +16,18 @@ dbutils.widgets.removeAll()
 #create widget text storageName default "adlsproyectofinaljctfd01";
 dbutils.widgets.text("container_raw", "raw")
 dbutils.widgets.text("container_metastore", "metastore")
-dbutils.widgets.text("catalog", "catalog_dev")
-dbutils.widgets.text("schema_bronze", "bronze")
-dbutils.widgets.text("schema_silver", "silver")
-dbutils.widgets.text("schema_golden", "golden")
-dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
+#dbutils.widgets.text("catalog", "catalog_dev")
+#dbutils.widgets.text("schema_bronze", "bronze")
+#dbutils.widgets.text("schema_silver", "silver")
+#dbutils.widgets.text("schema_golden", "golden")
+#dbutils.widgets.text("storageName", "adlsproyectofinaljctfd01")
 
 # COMMAND ----------
 
+catalog = dbutils.widgets.get("catalog")
 container_raw = dbutils.widgets.get("container_raw")
 container_metastore = dbutils.widgets.get("container_metastore")
-catalog = dbutils.widgets.get("catalog")
+
 schema_bronze = dbutils.widgets.get("schema_bronze")
 schema_silver = dbutils.widgets.get("schema_silver")
 schema_golden = dbutils.widgets.get("schema_golden")
