@@ -17,6 +17,8 @@ variables:
     description: Esquema para los datos limpios y conformados
   schema_golden:
     description: Esquema para los datos agregados de negocio
+  warehouse_id:
+    description: SQL warehouse que ejecuta las consultas del dashboard
 targets:
   dev:
     # The default target uses 'mode: development' to create a development copy.
@@ -32,6 +34,7 @@ targets:
       schema_bronze: bronze
       schema_silver: silver
       schema_golden: golden
+      warehouse_id: de88a6bd5527f754
   prod:
     mode: production
     workspace:
@@ -43,6 +46,7 @@ targets:
       schema_bronze: bronze
       schema_silver: silver
       schema_golden: golden
+      warehouse_id: 6908f6bbe53cff61
     permissions:
       - user_name: joancarlotorresflores@gmail.com
         level: CAN_MANAGE

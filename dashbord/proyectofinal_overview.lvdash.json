@@ -1,0 +1,3284 @@
+{
+  "datasets": [
+    {
+      "name": "530b350d",
+      "displayName": "Ventas mensuales",
+      "queryLines": [
+        "SELECT anio, mes, nombre_mes, make_date(anio, mes, 1) AS fecha, total_reservas, total_viajeros,\n",
+        "       ventas_totales, ticket_promedio, gasto_promedio_persona, pagos_recibidos\n",
+        "FROM catalog_dev.golden.kpi_ventas_mensuales"
+      ]
+    },
+    {
+      "name": "03ee85a9",
+      "displayName": "Destinos",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_destinos"
+      ]
+    },
+    {
+      "name": "0670acdd",
+      "displayName": "Clientes",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_clientes"
+      ]
+    },
+    {
+      "name": "f9e74caa",
+      "displayName": "Top 10 clientes",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_clientes\n",
+        "ORDER BY gasto_total DESC\n",
+        "LIMIT 10"
+      ]
+    },
+    {
+      "name": "e8e64d42",
+      "displayName": "Hoteles",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_hoteles"
+      ]
+    },
+    {
+      "name": "5ae80897",
+      "displayName": "Top 10 hoteles",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_hoteles\n",
+        "ORDER BY ventas_totales DESC\n",
+        "LIMIT 10"
+      ]
+    },
+    {
+      "name": "063bab69",
+      "displayName": "Vuelos",
+      "queryLines": [
+        "SELECT * FROM catalog_dev.golden.kpi_vuelos"
+      ]
+    },
+    {
+      "name": "48039ae2",
+      "displayName": "Top 10 rutas",
+      "queryLines": [
+        "SELECT ruta, SUM(reservas) AS reservas, SUM(pasajeros) AS pasajeros\n",
+        "FROM catalog_dev.golden.kpi_vuelos\n",
+        "GROUP BY ruta\n",
+        "ORDER BY reservas DESC\n",
+        "LIMIT 10"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "ventas",
+      "displayName": "Ventas mensuales",
+      "layout": [
+        {
+          "widget": {
+            "name": "x01",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Ventas mensuales",
+                "Reservas, viajeros, ventas y pagos recibidos por mes."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 4,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "f02",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "anio",
+                      "expression": "`anio`"
+                    },
+                    {
+                      "name": "anio_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "anio",
+                    "displayName": "Año",
+                    "queryName": "main_query"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Año"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c03",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ventas totales"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas totales"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c04",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`pagos_recibidos`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Pagos recibidos"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Pagos recibidos"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c05",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Total reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c06",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_viajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Total viajeros"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total viajeros"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c07",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)/SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c08",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)/SUM(`total_viajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Gasto promedio por persona"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto promedio por persona"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "w09",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "fecha_mes",
+                      "expression": "DATE_TRUNC(\"MONTH\", `fecha`)"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    },
+                    {
+                      "name": "pagos",
+                      "expression": "SUM(`pagos_recibidos`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "fecha_mes",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Mes"
+                },
+                "y": {
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "fields": [
+                    {
+                      "fieldName": "ventas",
+                      "displayName": "Ventas"
+                    },
+                    {
+                      "fieldName": "pagos",
+                      "displayName": "Pagos recibidos"
+                    }
+                  ]
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas vs pagos recibidos por mes"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w10",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "fecha_mes",
+                      "expression": "DATE_TRUNC(\"MONTH\", `fecha`)"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "fecha_mes",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Mes"
+                },
+                "y": {
+                  "fieldName": "reservas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas por mes"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w11",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "fecha_mes",
+                      "expression": "DATE_TRUNC(\"MONTH\", `fecha`)"
+                    },
+                    {
+                      "name": "ticket",
+                      "expression": "SUM(`ventas_totales`)/SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "fecha_mes",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Mes"
+                },
+                "y": {
+                  "fieldName": "ticket",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio por mes"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 15,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "t12",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "530b350d",
+                  "fields": [
+                    {
+                      "name": "anio",
+                      "expression": "`anio`"
+                    },
+                    {
+                      "name": "nombre_mes",
+                      "expression": "`nombre_mes`"
+                    },
+                    {
+                      "name": "total_reservas",
+                      "expression": "`total_reservas`"
+                    },
+                    {
+                      "name": "total_viajeros",
+                      "expression": "`total_viajeros`"
+                    },
+                    {
+                      "name": "ventas_totales",
+                      "expression": "`ventas_totales`"
+                    },
+                    {
+                      "name": "ticket_promedio",
+                      "expression": "`ticket_promedio`"
+                    },
+                    {
+                      "name": "gasto_promedio_persona",
+                      "expression": "`gasto_promedio_persona`"
+                    },
+                    {
+                      "name": "pagos_recibidos",
+                      "expression": "`pagos_recibidos`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "anio",
+                    "displayName": "Año"
+                  },
+                  {
+                    "fieldName": "nombre_mes",
+                    "displayName": "Mes"
+                  },
+                  {
+                    "fieldName": "total_reservas",
+                    "displayName": "Reservas"
+                  },
+                  {
+                    "fieldName": "total_viajeros",
+                    "displayName": "Viajeros"
+                  },
+                  {
+                    "fieldName": "ventas_totales",
+                    "displayName": "Ventas"
+                  },
+                  {
+                    "fieldName": "ticket_promedio",
+                    "displayName": "Ticket promedio"
+                  },
+                  {
+                    "fieldName": "gasto_promedio_persona",
+                    "displayName": "Gasto por persona"
+                  },
+                  {
+                    "fieldName": "pagos_recibidos",
+                    "displayName": "Pagos"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Detalle mensual"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 21,
+            "width": 6,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "destinos",
+      "displayName": "Destinos",
+      "layout": [
+        {
+          "widget": {
+            "name": "x13",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Destinos",
+                "Desempeño comercial por destino."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c14",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "COUNT(DISTINCT `destino_codigo`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Destinos"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Destinos"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c15",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ventas totales"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas totales"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c16",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c17",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_viajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Viajeros"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Viajeros"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c18",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)/SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c19",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "AVG(`promedio_noches`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Noches promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Noches promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "w20",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "ventas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ventas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w21",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "reservas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w22",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "ticket",
+                      "expression": "AVG(`ticket_promedio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "ticket",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 15,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w23",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "gasto",
+                      "expression": "AVG(`gasto_promedio_persona`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "gasto",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Gasto por persona"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto promedio por persona"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 22,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w24",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "desc",
+                      "expression": "AVG(`descuento_promedio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "desc",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Descuento promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Descuento promedio por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 22,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "t25",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "03ee85a9",
+                  "fields": [
+                    {
+                      "name": "destino_codigo",
+                      "expression": "`destino_codigo`"
+                    },
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "total_reservas",
+                      "expression": "`total_reservas`"
+                    },
+                    {
+                      "name": "total_viajeros",
+                      "expression": "`total_viajeros`"
+                    },
+                    {
+                      "name": "ventas_totales",
+                      "expression": "`ventas_totales`"
+                    },
+                    {
+                      "name": "ticket_promedio",
+                      "expression": "`ticket_promedio`"
+                    },
+                    {
+                      "name": "gasto_promedio_persona",
+                      "expression": "`gasto_promedio_persona`"
+                    },
+                    {
+                      "name": "promedio_noches",
+                      "expression": "`promedio_noches`"
+                    },
+                    {
+                      "name": "descuento_promedio",
+                      "expression": "`descuento_promedio`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "destino_codigo",
+                    "displayName": "Código"
+                  },
+                  {
+                    "fieldName": "destino",
+                    "displayName": "Destino"
+                  },
+                  {
+                    "fieldName": "total_reservas",
+                    "displayName": "Reservas"
+                  },
+                  {
+                    "fieldName": "total_viajeros",
+                    "displayName": "Viajeros"
+                  },
+                  {
+                    "fieldName": "ventas_totales",
+                    "displayName": "Ventas"
+                  },
+                  {
+                    "fieldName": "ticket_promedio",
+                    "displayName": "Ticket promedio"
+                  },
+                  {
+                    "fieldName": "gasto_promedio_persona",
+                    "displayName": "Gasto por persona"
+                  },
+                  {
+                    "fieldName": "promedio_noches",
+                    "displayName": "Noches promedio"
+                  },
+                  {
+                    "fieldName": "descuento_promedio",
+                    "displayName": "Descuento promedio"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Detalle por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 28,
+            "width": 6,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "clientes",
+      "displayName": "Clientes",
+      "layout": [
+        {
+          "widget": {
+            "name": "x26",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Clientes",
+                "Valor y comportamiento de los clientes por segmento y ciudad."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c27",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "COUNT(DISTINCT `cliente_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Clientes con reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Clientes con reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c28",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`gasto_total`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Gasto total"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto total"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c29",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c30",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_viajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Viajeros"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Viajeros"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c31",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`gasto_total`)/SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c32",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "AVG(`gasto_total`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Gasto promedio por cliente"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto promedio por cliente"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "p33",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "segmento",
+                      "expression": "`segmento_cliente`"
+                    },
+                    {
+                      "name": "clientes",
+                      "expression": "COUNT(DISTINCT `cliente_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "clientes",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Clientes"
+                },
+                "color": {
+                  "fieldName": "segmento",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Segmento"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Clientes por segmento"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w34",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "segmento",
+                      "expression": "`segmento_cliente`"
+                    },
+                    {
+                      "name": "gasto",
+                      "expression": "SUM(`gasto_total`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "segmento",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Segmento"
+                },
+                "y": {
+                  "fieldName": "gasto",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Gasto total"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto total por segmento"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 8,
+            "width": 4,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w35",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "ciudad",
+                      "expression": "`ciudad_cliente`"
+                    },
+                    {
+                      "name": "gasto",
+                      "expression": "SUM(`gasto_total`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "ciudad",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Ciudad"
+                },
+                "y": {
+                  "fieldName": "gasto",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Gasto total"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Gasto total por ciudad del cliente"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w36",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "f9e74caa",
+                  "fields": [
+                    {
+                      "name": "cliente",
+                      "expression": "`nombre_completo`"
+                    },
+                    {
+                      "name": "gasto",
+                      "expression": "SUM(`gasto_total`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "cliente",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Cliente"
+                },
+                "y": {
+                  "fieldName": "gasto",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Gasto total"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 clientes por gasto"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 14,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "t37",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0670acdd",
+                  "fields": [
+                    {
+                      "name": "cliente_id",
+                      "expression": "`cliente_id`"
+                    },
+                    {
+                      "name": "nombre_completo",
+                      "expression": "`nombre_completo`"
+                    },
+                    {
+                      "name": "segmento_cliente",
+                      "expression": "`segmento_cliente`"
+                    },
+                    {
+                      "name": "ciudad_cliente",
+                      "expression": "`ciudad_cliente`"
+                    },
+                    {
+                      "name": "total_reservas",
+                      "expression": "`total_reservas`"
+                    },
+                    {
+                      "name": "total_viajeros",
+                      "expression": "`total_viajeros`"
+                    },
+                    {
+                      "name": "gasto_total",
+                      "expression": "`gasto_total`"
+                    },
+                    {
+                      "name": "ticket_promedio",
+                      "expression": "`ticket_promedio`"
+                    },
+                    {
+                      "name": "primera_reserva",
+                      "expression": "`primera_reserva`"
+                    },
+                    {
+                      "name": "ultima_reserva",
+                      "expression": "`ultima_reserva`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "cliente_id",
+                    "displayName": "ID"
+                  },
+                  {
+                    "fieldName": "nombre_completo",
+                    "displayName": "Cliente"
+                  },
+                  {
+                    "fieldName": "segmento_cliente",
+                    "displayName": "Segmento"
+                  },
+                  {
+                    "fieldName": "ciudad_cliente",
+                    "displayName": "Ciudad"
+                  },
+                  {
+                    "fieldName": "total_reservas",
+                    "displayName": "Reservas"
+                  },
+                  {
+                    "fieldName": "total_viajeros",
+                    "displayName": "Viajeros"
+                  },
+                  {
+                    "fieldName": "gasto_total",
+                    "displayName": "Gasto total"
+                  },
+                  {
+                    "fieldName": "ticket_promedio",
+                    "displayName": "Ticket promedio"
+                  },
+                  {
+                    "fieldName": "primera_reserva",
+                    "displayName": "Primera reserva"
+                  },
+                  {
+                    "fieldName": "ultima_reserva",
+                    "displayName": "Última reserva"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Detalle de clientes"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 21,
+            "width": 6,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "hoteles",
+      "displayName": "Hoteles",
+      "layout": [
+        {
+          "widget": {
+            "name": "x38",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Hoteles",
+                "Ventas y ocupación por hotel, categoría y régimen."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c39",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "COUNT(DISTINCT `hotel_id`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Hoteles con reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Hoteles con reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c40",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ventas totales"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas totales"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c41",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c42",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`total_huespedes`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Huéspedes"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Huéspedes"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c43",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "AVG(`calificacion_promedio`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Calificación promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Calificación promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c44",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "AVG(`promedio_noches`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Noches promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Noches promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "w45",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "estrellas",
+                      "expression": "`categoria_estrellas`"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "estrellas",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Estrellas"
+                },
+                "y": {
+                  "fieldName": "ventas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ventas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas por categoría (estrellas)"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "p46",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "regimen",
+                      "expression": "`regimen`"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "ventas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ventas"
+                },
+                "color": {
+                  "fieldName": "regimen",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Régimen"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas por régimen"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 8,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w47",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "estrellas",
+                      "expression": "`categoria_estrellas`"
+                    },
+                    {
+                      "name": "precio",
+                      "expression": "AVG(`precio_promedio_noche`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "estrellas",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Estrellas"
+                },
+                "y": {
+                  "fieldName": "precio",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Precio por noche"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Precio promedio por noche y categoría"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 8,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w48",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "destino",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Destino"
+                },
+                "y": {
+                  "fieldName": "ventas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ventas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ventas por destino"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "w49",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5ae80897",
+                  "fields": [
+                    {
+                      "name": "hotel",
+                      "expression": "`nombre_hotel`"
+                    },
+                    {
+                      "name": "ventas",
+                      "expression": "SUM(`ventas_totales`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "hotel",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Hotel"
+                },
+                "y": {
+                  "fieldName": "ventas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Ventas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 hoteles por ventas"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 14,
+            "width": 3,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "t50",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "e8e64d42",
+                  "fields": [
+                    {
+                      "name": "hotel_id",
+                      "expression": "`hotel_id`"
+                    },
+                    {
+                      "name": "nombre_hotel",
+                      "expression": "`nombre_hotel`"
+                    },
+                    {
+                      "name": "destino",
+                      "expression": "`destino`"
+                    },
+                    {
+                      "name": "categoria_estrellas",
+                      "expression": "`categoria_estrellas`"
+                    },
+                    {
+                      "name": "regimen",
+                      "expression": "`regimen`"
+                    },
+                    {
+                      "name": "total_reservas",
+                      "expression": "`total_reservas`"
+                    },
+                    {
+                      "name": "total_huespedes",
+                      "expression": "`total_huespedes`"
+                    },
+                    {
+                      "name": "ventas_totales",
+                      "expression": "`ventas_totales`"
+                    },
+                    {
+                      "name": "precio_promedio_noche",
+                      "expression": "`precio_promedio_noche`"
+                    },
+                    {
+                      "name": "calificacion_promedio",
+                      "expression": "`calificacion_promedio`"
+                    },
+                    {
+                      "name": "promedio_noches",
+                      "expression": "`promedio_noches`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "hotel_id",
+                    "displayName": "ID"
+                  },
+                  {
+                    "fieldName": "nombre_hotel",
+                    "displayName": "Hotel"
+                  },
+                  {
+                    "fieldName": "destino",
+                    "displayName": "Destino"
+                  },
+                  {
+                    "fieldName": "categoria_estrellas",
+                    "displayName": "Estrellas"
+                  },
+                  {
+                    "fieldName": "regimen",
+                    "displayName": "Régimen"
+                  },
+                  {
+                    "fieldName": "total_reservas",
+                    "displayName": "Reservas"
+                  },
+                  {
+                    "fieldName": "total_huespedes",
+                    "displayName": "Huéspedes"
+                  },
+                  {
+                    "fieldName": "ventas_totales",
+                    "displayName": "Ventas"
+                  },
+                  {
+                    "fieldName": "precio_promedio_noche",
+                    "displayName": "Precio por noche"
+                  },
+                  {
+                    "fieldName": "calificacion_promedio",
+                    "displayName": "Calificación"
+                  },
+                  {
+                    "fieldName": "promedio_noches",
+                    "displayName": "Noches promedio"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Detalle de hoteles"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 21,
+            "width": 6,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "vuelos",
+      "displayName": "Vuelos",
+      "layout": [
+        {
+          "widget": {
+            "name": "x51",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# Vuelos",
+                "Reservas, pasajeros y precios por aerolínea, ruta y jornada."
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "c52",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c53",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`pasajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Pasajeros"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Pasajeros"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c54",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "COUNT(DISTINCT `aerolinea`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Aerolíneas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Aerolíneas"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 2,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c55",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`precio_promedio` * `reservas`)/SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Precio promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Precio promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c56",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`duracion_promedio` * `reservas`)/SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Duración promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Duración promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "c57",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "valor",
+                      "expression": "SUM(`ticket_promedio` * `reservas`)/SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "valor",
+                  "displayName": "Ticket promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Ticket promedio"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "w58",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "aerolinea",
+                      "expression": "`aerolinea`"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "aerolinea",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Aerolínea"
+                },
+                "y": {
+                  "fieldName": "reservas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas por aerolínea"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w59",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "aerolinea",
+                      "expression": "`aerolinea`"
+                    },
+                    {
+                      "name": "precio",
+                      "expression": "SUM(`precio_promedio` * `reservas`)/SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "aerolinea",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Aerolínea"
+                },
+                "y": {
+                  "fieldName": "precio",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Precio promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Precio promedio por aerolínea"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 8,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "p60",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "jornada",
+                      "expression": "`jornada`"
+                    },
+                    {
+                      "name": "pasajeros",
+                      "expression": "SUM(`pasajeros`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "pasajeros",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Pasajeros"
+                },
+                "color": {
+                  "fieldName": "jornada",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Jornada"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Pasajeros por jornada"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 2,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w61",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "48039ae2",
+                  "fields": [
+                    {
+                      "name": "ruta",
+                      "expression": "`ruta`"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "ruta",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Ruta"
+                },
+                "y": {
+                  "fieldName": "reservas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Reservas"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Top 10 rutas por reservas"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 14,
+            "width": 4,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w62",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "aerolinea",
+                      "expression": "`aerolinea`"
+                    },
+                    {
+                      "name": "duracion",
+                      "expression": "SUM(`duracion_promedio` * `reservas`)/SUM(`reservas`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "aerolinea",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  },
+                  "displayName": "Aerolínea"
+                },
+                "y": {
+                  "fieldName": "duracion",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Duración promedio"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Duración promedio por aerolínea"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 20,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "w63",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "jornada",
+                      "expression": "`jornada`"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "SUM(`reservas`)"
+                    },
+                    {
+                      "name": "aerolinea",
+                      "expression": "`aerolinea`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "jornada",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Jornada"
+                },
+                "y": {
+                  "fieldName": "reservas",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Reservas"
+                },
+                "color": {
+                  "fieldName": "aerolinea",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Aerolínea"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Reservas por jornada y aerolínea"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 20,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "t64",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "063bab69",
+                  "fields": [
+                    {
+                      "name": "aerolinea",
+                      "expression": "`aerolinea`"
+                    },
+                    {
+                      "name": "ruta",
+                      "expression": "`ruta`"
+                    },
+                    {
+                      "name": "jornada",
+                      "expression": "`jornada`"
+                    },
+                    {
+                      "name": "reservas",
+                      "expression": "`reservas`"
+                    },
+                    {
+                      "name": "pasajeros",
+                      "expression": "`pasajeros`"
+                    },
+                    {
+                      "name": "precio_promedio",
+                      "expression": "`precio_promedio`"
+                    },
+                    {
+                      "name": "duracion_promedio",
+                      "expression": "`duracion_promedio`"
+                    },
+                    {
+                      "name": "ticket_promedio",
+                      "expression": "`ticket_promedio`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "aerolinea",
+                    "displayName": "Aerolínea"
+                  },
+                  {
+                    "fieldName": "ruta",
+                    "displayName": "Ruta"
+                  },
+                  {
+                    "fieldName": "jornada",
+                    "displayName": "Jornada"
+                  },
+                  {
+                    "fieldName": "reservas",
+                    "displayName": "Reservas"
+                  },
+                  {
+                    "fieldName": "pasajeros",
+                    "displayName": "Pasajeros"
+                  },
+                  {
+                    "fieldName": "precio_promedio",
+                    "displayName": "Precio promedio"
+                  },
+                  {
+                    "fieldName": "duracion_promedio",
+                    "displayName": "Duración promedio"
+                  },
+                  {
+                    "fieldName": "ticket_promedio",
+                    "displayName": "Ticket promedio"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Detalle de vuelos"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 26,
+            "width": 6,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ]
+}

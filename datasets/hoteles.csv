@@ -1,0 +1,1002 @@
+hotel_id,nombre_hotel,destino,destino_codigo,pais,categoria_estrellas,regimen,habitaciones,precio_noche,calificacion
+H0001,Imperial Madrid,Madrid,MAD,España,4,All Inclusive,324,4523.22,3.3
+H0002,Royal Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,401,3630.77,3.3
+H0003,Sol Guadalajara,Guadalajara,GDL,México,3,All Inclusive,329,1689.42,3.3
+H0004,Royal Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,43,1927.22,3.6
+H0005,Royal Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,404,3975.59,3.6
+H0006,Costa París,París,CDG,Francia,4,Media pensión,473,4324.85,3.8
+H0007,Vista Cancún,Cancún,CUN,México,5,All Inclusive,41,2891.4,4.4
+H0008,Vista Los Cabos,Los Cabos,SJD,México,3,Solo habitación,389,1211.59,3.5
+H0009,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,434,2738.76,3.7
+H0010,Imperial Monterrey,Monterrey,MTY,México,3,Solo habitación,327,1263.99,3.3
+H0011,Plaza Acapulco,Acapulco,ACA,México,3,All Inclusive,105,1172.16,3.3
+H0012,Palms Huatulco,Huatulco,HUX,México,4,Media pensión,224,1755.25,4.5
+H0013,Royal Vancouver,Vancouver,YVR,Canadá,3,Media pensión,361,1592.31,3.5
+H0014,Grand Nueva York,Nueva York,JFK,Estados Unidos,4,Solo habitación,444,2553.67,3.6
+H0015,Vista Mérida,Mérida,MID,México,4,Solo habitación,67,2374.52,4.4
+H0016,Sol Madrid,Madrid,MAD,España,3,Solo habitación,121,2509.76,3.8
+H0017,Grand Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,416,3915.31,4.4
+H0018,Aqua Guadalajara,Guadalajara,GDL,México,3,Solo habitación,129,1522.67,3.3
+H0019,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,5,Solo habitación,344,2861.01,4.1
+H0020,Imperial Miami,Miami,MIA,Estados Unidos,5,Solo habitación,107,3410.42,4.4
+H0021,Plaza París,París,CDG,Francia,4,All Inclusive,385,3532.05,3.0
+H0022,Imperial Cancún,Cancún,CUN,México,4,Solo habitación,105,1646.98,3.9
+H0023,Royal Los Cabos,Los Cabos,SJD,México,4,Solo habitación,107,2285.93,3.2
+H0024,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,98,2149.09,3.7
+H0025,Grand Monterrey,Monterrey,MTY,México,4,All Inclusive,207,2115.08,3.7
+H0026,Mar Acapulco,Acapulco,ACA,México,4,Solo habitación,462,2033.19,3.6
+H0027,Palms Huatulco,Huatulco,HUX,México,3,Solo habitación,379,1790.19,3.7
+H0028,Palms Vancouver,Vancouver,YVR,Canadá,5,Solo habitación,366,5013.99,4.6
+H0029,Mar Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,417,4103.75,3.5
+H0030,Plaza Mérida,Mérida,MID,México,5,Solo habitación,499,2465.53,4.1
+H0031,Royal Madrid,Madrid,MAD,España,4,Media pensión,64,2935.49,3.7
+H0032,Aqua Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,448,4213.76,3.7
+H0033,Imperial Guadalajara,Guadalajara,GDL,México,3,Desayuno incluido,45,1163.37,3.5
+H0034,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,5,All Inclusive,80,2244.47,3.9
+H0035,Aqua Miami,Miami,MIA,Estados Unidos,5,All Inclusive,266,3758.61,3.4
+H0036,Royal París,París,CDG,Francia,3,All Inclusive,132,1695.32,4.0
+H0037,Vista Cancún,Cancún,CUN,México,3,Solo habitación,121,1623.48,3.0
+H0038,Royal Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,310,2245.87,3.6
+H0039,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,282,3136.37,3.7
+H0040,Royal Monterrey,Monterrey,MTY,México,5,Solo habitación,274,3181.85,4.0
+H0041,Palms Acapulco,Acapulco,ACA,México,5,Media pensión,338,2892.3,3.9
+H0042,Costa Huatulco,Huatulco,HUX,México,4,Solo habitación,42,1920.41,3.9
+H0043,Vista Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,316,2733.18,3.8
+H0044,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,259,3914.67,4.2
+H0045,Costa Mérida,Mérida,MID,México,5,Solo habitación,67,3849.79,4.3
+H0046,Aqua Madrid,Madrid,MAD,España,4,Desayuno incluido,427,3656.91,4.3
+H0047,Mar Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,411,4222.0,3.5
+H0048,Plaza Guadalajara,Guadalajara,GDL,México,4,Solo habitación,298,2453.4,4.4
+H0049,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,3,Solo habitación,476,1312.04,3.9
+H0050,Vista Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,138,2899.41,3.4
+H0051,Sol París,París,CDG,Francia,5,Desayuno incluido,220,6229.76,4.6
+H0052,Grand Cancún,Cancún,CUN,México,5,Desayuno incluido,495,2436.81,4.2
+H0053,Mar Los Cabos,Los Cabos,SJD,México,3,All Inclusive,181,1577.53,3.8
+H0054,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,248,2695.21,3.8
+H0055,Plaza Monterrey,Monterrey,MTY,México,4,All Inclusive,186,2773.82,4.0
+H0056,Sol Acapulco,Acapulco,ACA,México,4,Solo habitación,156,2023.29,3.5
+H0057,Sol Huatulco,Huatulco,HUX,México,4,Media pensión,492,2588.08,4.1
+H0058,Mar Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,469,2298.91,3.5
+H0059,Palms Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,333,2635.0,3.4
+H0060,Plaza Mérida,Mérida,MID,México,3,All Inclusive,234,1467.66,3.6
+H0061,Grand Madrid,Madrid,MAD,España,4,Desayuno incluido,148,3003.82,4.0
+H0062,Plaza Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,137,2502.68,3.6
+H0063,Costa Guadalajara,Guadalajara,GDL,México,5,Desayuno incluido,361,2618.81,3.7
+H0064,Mar Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,95,1818.56,3.5
+H0065,Plaza Miami,Miami,MIA,Estados Unidos,5,Solo habitación,410,3346.94,4.3
+H0066,Costa París,París,CDG,Francia,4,Media pensión,58,4474.43,3.4
+H0067,Costa Cancún,Cancún,CUN,México,5,Desayuno incluido,292,3170.13,4.1
+H0068,Vista Los Cabos,Los Cabos,SJD,México,3,Media pensión,421,1839.61,3.4
+H0069,Plaza Las Vegas,Las Vegas,LAS,Estados Unidos,3,Media pensión,314,2489.87,3.1
+H0070,Sol Monterrey,Monterrey,MTY,México,4,Solo habitación,325,2659.97,4.0
+H0071,Costa Acapulco,Acapulco,ACA,México,3,All Inclusive,450,1381.42,3.1
+H0072,Palms Huatulco,Huatulco,HUX,México,4,Desayuno incluido,452,2679.3,3.5
+H0073,Mar Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,318,2064.36,3.5
+H0074,Costa Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,329,2163.1,3.5
+H0075,Sol Mérida,Mérida,MID,México,5,Desayuno incluido,298,2185.68,4.4
+H0076,Vista Madrid,Madrid,MAD,España,3,Desayuno incluido,284,2157.1,3.4
+H0077,Plaza Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,261,3078.28,3.9
+H0078,Grand Guadalajara,Guadalajara,GDL,México,4,All Inclusive,145,2190.38,3.7
+H0079,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,3,All Inclusive,148,1632.26,3.6
+H0080,Costa Miami,Miami,MIA,Estados Unidos,3,All Inclusive,415,2401.22,3.5
+H0081,Imperial París,París,CDG,Francia,3,All Inclusive,330,2334.21,3.4
+H0082,Mar Cancún,Cancún,CUN,México,3,Solo habitación,459,1579.14,3.5
+H0083,Palms Los Cabos,Los Cabos,SJD,México,5,Solo habitación,339,2747.46,3.8
+H0084,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,261,2669.51,3.4
+H0085,Royal Monterrey,Monterrey,MTY,México,4,Solo habitación,352,2001.42,3.6
+H0086,Royal Acapulco,Acapulco,ACA,México,4,All Inclusive,430,2620.53,3.9
+H0087,Aqua Huatulco,Huatulco,HUX,México,4,Media pensión,88,1763.55,3.6
+H0088,Mar Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,108,2690.87,3.8
+H0089,Imperial Nueva York,Nueva York,JFK,Estados Unidos,5,Desayuno incluido,214,4359.95,4.4
+H0090,Imperial Mérida,Mérida,MID,México,3,Solo habitación,329,1652.1,3.5
+H0091,Royal Madrid,Madrid,MAD,España,4,Media pensión,106,4090.17,4.0
+H0092,Vista Orlando,Orlando,MCO,Estados Unidos,3,Solo habitación,232,2751.11,3.7
+H0093,Grand Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,67,2091.06,3.1
+H0094,Mar Puerto Vallarta,Puerto Vallarta,PVR,México,5,Solo habitación,482,3783.01,3.5
+H0095,Grand Miami,Miami,MIA,Estados Unidos,4,All Inclusive,393,3123.63,3.9
+H0096,Vista París,París,CDG,Francia,4,Solo habitación,484,3372.49,3.4
+H0097,Royal Cancún,Cancún,CUN,México,3, all inclusive ,326,1421.25,3.2
+H0098,Royal Los Cabos,Los Cabos,SJD,México,5,Solo habitación,44,3080.18,4.0
+H0099,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,3,Desayuno incluido,63,2417.64,4.0
+H0100,Plaza Monterrey,Monterrey,MTY,México,3,Media pensión,386,1741.01,3.3
+H0101,Grand Acapulco,Acapulco,ACA,México,3,Solo habitación,177,1373.93,3.8
+H0102,Costa Huatulco,Huatulco,HUX,México,5,Solo habitación,273,3510.95,4.5
+H0103,Imperial Vancouver,Vancouver,YVR,Canadá,5,Desayuno incluido,498,4267.55,3.8
+H0104,Vista Nueva York,Nueva York,JFK,Estados Unidos,5,Desayuno incluido,63,4679.03,4.1
+H0105,Sol Mérida,Mérida,MID,México,5,Media pensión,424,3244.93,4.0
+H0106,Imperial Madrid,Madrid,MAD,España,5, all inclusive ,442,5134.19,4.4
+H0107,Imperial Orlando,Orlando,MCO,Estados Unidos,3,Media pensión,224,2736.53,3.2
+H0108,Vista Guadalajara,Guadalajara,GDL,México,4,Media pensión,167,2003.88,3.7
+H0109,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,336,2697.9,3.8
+H0110,Costa Miami,Miami,MIA,Estados Unidos,3,Solo habitación,333,1693.99,3.8
+H0111,Plaza París,París,CDG,Francia,4,Solo habitación,203,4307.33,4.0
+H0112,Vista Cancún,Cancún,CUN,México,5,All Inclusive,390,2784.61,3.4
+H0113,Costa Los Cabos,Los Cabos,SJD,México,5,Solo habitación,144,2897.18,4.5
+H0114,Vista Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,70,4431.93,3.9
+H0115,Sol Monterrey,Monterrey,MTY,México,4,All Inclusive,429,2769.72,3.6
+H0116,Plaza Acapulco,Acapulco,ACA,México,5,Media pensión,351,3615.09,4.3
+H0117,Grand Huatulco,Huatulco,HUX,México,5, all inclusive ,371,3787.27,4.4
+H0118,Plaza Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,145,2900.67,4.1
+H0119,Royal Nueva York,Nueva York,JFK,Estados Unidos,5,All Inclusive,340,4347.91,4.0
+H0120,Costa Mérida,Mérida,MID,México,5,All Inclusive,466,3101.62,4.3
+H0121,Sol Madrid,Madrid,MAD,España,4,Solo habitación,262,3092.07,3.7
+H0122,Grand Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,467,3584.54,3.7
+H0123,Plaza Guadalajara,Guadalajara,GDL,México,3,Solo habitación,53,1831.91,3.4
+H0124,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,3,Media pensión,417,1374.84,3.6
+H0125,Aqua Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,131,2386.25,3.3
+H0126,Vista París,París,CDG,Francia,4,Media pensión,466,2897.47,3.7
+H0127,Mar Cancún,Cancún,CUN,México,3,Desayuno incluido,57,1604.04,3.6
+H0128,Royal Los Cabos,Los Cabos,SJD,México,4,Media pensión,263,2627.94,3.5
+H0129,Vista Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,391,2745.52,3.6
+H0130,Imperial Monterrey,Monterrey,MTY,México,4,Desayuno incluido,143,2822.09,3.7
+H0131,Aqua Acapulco,Acapulco,ACA,México,5,Media pensión,158,2889.27,3.6
+H0132,Costa Huatulco,Huatulco,HUX,México,4,All Inclusive,98,2095.98,3.9
+H0133,Grand Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,63,2185.61,3.4
+H0134,Royal Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,135,2677.05,3.8
+H0135,Costa Mérida,Mérida,MID,México,4,All Inclusive,334,1726.62,4.1
+H0136,Aqua Madrid,Madrid,MAD,España,4,Media pensión,200,4481.73,3.9
+H0137,Grand Orlando,Orlando,MCO,Estados Unidos,3,Solo habitación,165,1588.28,3.7
+H0138,Royal Guadalajara,Guadalajara,GDL,México,4,Solo habitación,273,2476.57,3.2
+H0139,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,140,1428.46,3.5
+H0140,Mar Miami,Miami,MIA,Estados Unidos,5,Solo habitación,43,4643.35,3.7
+H0141,Costa París,París,CDG,Francia,3,Solo habitación,206,2091.65,3.9
+H0142,Royal Cancún,Cancún,CUN,México,5,Desayuno incluido,331,2997.01,3.8
+H0143,Plaza Los Cabos,Los Cabos,SJD,México,4,Media pensión,158,2819.95,4.1
+H0144,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,5,Desayuno incluido,438,5463.1,4.6
+H0145,Costa Monterrey,Monterrey,MTY,México,4,Desayuno incluido,486,1765.49,3.8
+H0146,Sol Acapulco,Acapulco,ACA,México,4,Desayuno incluido,487,2541.48,4.2
+H0147,Sol Huatulco,Huatulco,HUX,México,4,Media pensión,330,2597.79,4.1
+H0148,Vista Vancouver,Vancouver,YVR,Canadá,3,Media pensión,369,1536.97,4.0
+H0149,Royal Nueva York,Nueva York,JFK,Estados Unidos,5,Media pensión,317,5319.32,3.9
+H0150,Imperial Mérida,Mérida,MID,México,5,Solo habitación,57,2817.75,4.1
+H0151,Mar Madrid,Madrid,MAD,España,4,Desayuno incluido,482,4258.41,3.5
+H0152,Royal Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,104,3987.53,3.8
+H0153,Mar Guadalajara,Guadalajara,GDL,México,4,Media pensión,477,2299.83,3.8
+H0154,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,176,1197.81,3.5
+H0155,Imperial Miami,Miami,MIA,Estados Unidos,4,Media pensión,465,2450.9,3.5
+H0156,Palms París,París,CDG,Francia,5,Media pensión,86,4303.69,3.9
+H0157,Imperial Cancún,Cancún,CUN,México,3,Media pensión,263,1306.18,3.2
+H0158,Grand Los Cabos,Los Cabos,SJD,México,3,All Inclusive,134,1143.49,3.4
+H0159,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,3,Desayuno incluido,273,2622.07,3.7
+H0160,Mar Monterrey,Monterrey,MTY,México,4,All Inclusive,453,2590.29,3.8
+H0161,Aqua Acapulco,Acapulco,ACA,México,4,Desayuno incluido,483,2609.79,3.8
+H0162,Grand Huatulco,Huatulco,HUX,México,4,Solo habitación,399,1684.04,3.3
+H0163,Sol Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,336,3614.44,3.1
+H0164,Costa Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,60,2426.53,4.0
+H0165,Imperial Mérida,Mérida,MID,México,4,Media pensión,59,2181.65,3.6
+H0166,Vista Madrid,Madrid,MAD,España,4,All Inclusive,160,4446.63,3.9
+H0167,Aqua Orlando,Orlando,MCO,Estados Unidos,3,Media pensión,77,2194.19,3.2
+H0168,Royal Guadalajara,Guadalajara,GDL,México,4,Solo habitación,379,2266.3,4.1
+H0169,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,162,2565.55,4.2
+H0170,Sol Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,115,3103.56,3.5
+H0171,Palms París,París,CDG,Francia,4,Solo habitación,225,2689.23,3.5
+H0172,Royal Cancún,Cancún,CUN,México,3,Desayuno incluido,370,1252.66,3.4
+H0173,Sol Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,207,1230.47,3.0
+H0174,Imperial Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,246,3880.4,4.2
+H0175,Royal Monterrey,Monterrey,MTY,México,5,Desayuno incluido,86,2197.69,4.2
+H0176,Royal Acapulco,Acapulco,ACA,México,5,Media pensión,470,2748.48,4.6
+H0177,Grand Huatulco,Huatulco,HUX,México,3,Solo habitación,473,1294.02,3.7
+H0178,Vista Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,383,1773.36,3.5
+H0179,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,402,3553.56,3.6
+H0180,Mar Mérida,Mérida,MID,México,3,Solo habitación,135,1279.63,4.1
+H0181,Palms Madrid,Madrid,MAD,España,3,Media pensión,395,2536.56,3.7
+H0182,Royal Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,416,2616.65,3.3
+H0183,Aqua Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,156,2039.47,3.7
+H0184,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,3,Media pensión,399,1287.43,3.2
+H0185,Costa Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,126,4263.98,3.7
+H0186,Royal París,París,CDG,Francia,4,Solo habitación,208,4203.32,3.4
+H0187,Sol Cancún,Cancún,CUN,México,4,All Inclusive,352,1828.94,3.9
+H0188,Mar Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,396,2532.45,3.9
+H0189,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,228,3244.31,4.0
+H0190,Grand Monterrey,Monterrey,MTY,México,3,Desayuno incluido,317,1108.62,3.0
+H0191,Plaza Acapulco,Acapulco,ACA,México,4,Solo habitación,135,1639.17,3.6
+H0192,Royal Huatulco,Huatulco,HUX,México,5,Desayuno incluido,199,3068.97,4.1
+H0193,Costa Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,417,2807.74,4.0
+H0194,Grand Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,466,3684.11,3.5
+H0195,Mar Mérida,Mérida,MID,México,5,Desayuno incluido,71,2395.0,4.1
+H0196,Costa Madrid,Madrid,MAD,España,4,Desayuno incluido,181,3092.3,3.5
+H0197,Sol Orlando,Orlando,MCO,Estados Unidos,5,Solo habitación,50,5421.55,4.6
+H0198,Mar Guadalajara,Guadalajara,GDL,México,5,Desayuno incluido,259,2768.27,4.2
+H0199,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,199,2750.05,3.5
+H0200,Sol Miami,Miami,MIA,Estados Unidos,3,All Inclusive,372,1583.94,4.1
+H0201,Mar París,París,CDG,Francia,4,All Inclusive,364,3470.0,4.3
+H0202,Aqua Cancún,Cancún,CUN,México,4,All Inclusive,47,2855.09,3.8
+H0203,Royal Los Cabos,Los Cabos,SJD,México,4,Media pensión,113,1925.92,4.0
+H0204,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,5,Desayuno incluido,216,3304.72,3.8
+H0205,Costa Monterrey,Monterrey,MTY,México,4,Media pensión,224,1707.57,3.7
+H0206,Plaza Acapulco,Acapulco,ACA,México,4,Desayuno incluido,290,2402.53,3.4
+H0207,Mar Huatulco,Huatulco,HUX,México,4,Solo habitación,430,2692.1,3.3
+H0208,Imperial Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,138,1723.13,3.3
+H0209,Grand Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,129,2216.01,3.8
+H0210,Sol Mérida,Mérida,MID,México,3,Solo habitación,103,1366.96,3.1
+H0211,Aqua Madrid,Madrid,MAD,España,5,Media pensión,414,5228.13,3.5
+H0212,Imperial Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,279,2967.55,3.6
+H0213,Grand Guadalajara,Guadalajara,GDL,México,3,Desayuno incluido,244,1331.42,3.7
+H0214,Vista Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,433,1927.79,4.3
+H0215,Mar Miami,Miami,MIA,Estados Unidos,4,Media pensión,163,3229.48,3.8
+H0216,Plaza París,París,CDG,Francia,4,Solo habitación,301,3025.05,3.8
+H0217,Mar Cancún,Cancún,CUN,México,4,Desayuno incluido,284,1729.01,3.7
+H0218,Sol Los Cabos,Los Cabos,SJD,México,4,Solo habitación,441,2611.5,4.3
+H0219,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,3,Desayuno incluido,281,2217.12,3.4
+H0220,Aqua Monterrey,Monterrey,MTY,México,3,Solo habitación,360,1770.13,3.6
+H0221,Mar Acapulco,Acapulco,ACA,México,3,All Inclusive,180,1542.97,3.4
+H0222,Royal Huatulco,Huatulco,HUX,México,5,Media pensión,346,3404.54,3.4
+H0223,Vista Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,378,3831.07,3.9
+H0224,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,145,3358.69,4.1
+H0225,Grand Mérida,Mérida,MID,México,4,Media pensión,275,2564.35,3.9
+H0226,Costa Madrid,Madrid,MAD,España,4,Solo habitación,464,3353.14,4.1
+H0227,Royal Orlando,Orlando,MCO,Estados Unidos,3, all inclusive ,177,2195.76,3.4
+H0228,Mar Guadalajara,Guadalajara,GDL,México,4,Solo habitación,458,1621.68,4.0
+H0229,Vista Puerto Vallarta,Puerto Vallarta,PVR,México,3,Solo habitación,117,1731.0,3.7
+H0230,Royal Miami,Miami,MIA,Estados Unidos,5,Media pensión,370,4983.05,4.4
+H0231,Grand París,París,CDG,Francia,4,Media pensión,46,4067.72,3.9
+H0232,Costa Cancún,Cancún,CUN,México,3,Solo habitación,364,1682.89,3.7
+H0233,Vista Los Cabos,Los Cabos,SJD,México,4,All Inclusive,47,2015.84,4.0
+H0234,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,5,Solo habitación,185,4879.25,4.4
+H0235,Imperial Monterrey,Monterrey,MTY,México,5,Desayuno incluido,151,2873.4,4.4
+H0236,Grand Acapulco,Acapulco,ACA,México,4,Media pensión,163,2358.69,3.7
+H0237,Mar Huatulco,Huatulco,HUX,México,5,All Inclusive,222,3008.2,4.0
+H0238,Sol Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,338,3487.69,3.7
+H0239,Mar Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,219,2648.54,3.7
+H0240,Vista Mérida,Mérida,MID,México,3,Desayuno incluido,176,1836.5,3.5
+H0241,Palms Madrid,Madrid,MAD,España,3,Solo habitación,223,1674.58,3.2
+H0242,Royal Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,68,3206.52,3.1
+H0243,Vista Guadalajara,Guadalajara,GDL,México,3,Solo habitación,320,1162.82,3.2
+H0244,Royal Puerto Vallarta,Puerto Vallarta,PVR,México,5,Media pensión,345,2610.79,3.9
+H0245,Plaza Miami,Miami,MIA,Estados Unidos,4,All Inclusive,90,2463.58,3.8
+H0246,Imperial París,París,CDG,Francia,5,All Inclusive,228,5085.58,4.2
+H0247,Royal Cancún,Cancún,CUN,México,5,Solo habitación,188,3123.17,3.8
+H0248,Plaza Los Cabos,Los Cabos,SJD,México,4,All Inclusive,415,2631.62,4.0
+H0249,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,3,Desayuno incluido,256,2247.44,3.4
+H0250,Sol Monterrey,Monterrey,MTY,México,3,Media pensión,144,1163.88,3.0
+H0251,Palms Acapulco,Acapulco,ACA,México,4,Media pensión,353,2501.57,3.8
+H0252,Vista Huatulco,Huatulco,HUX,México,5,Media pensión,496,3574.27,4.3
+H0253,Costa Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,95,1607.84,3.7
+H0254,Costa Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,105,3019.12,3.6
+H0255,Royal Mérida,Mérida,MID,México,3,Media pensión,118,1564.97,3.7
+H0256,Mar Madrid,Madrid,MAD,España,5,Solo habitación,71,5156.81,3.9
+H0257,Vista Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,172,3390.44,3.6
+H0258,Plaza Guadalajara,Guadalajara,GDL,México,4,Media pensión,174,2049.06,3.8
+H0259,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,5,Media pensión,131,3204.8,4.1
+H0260,Costa Miami,Miami,MIA,Estados Unidos,3,Media pensión,50,2315.06,3.9
+H0261,Aqua París,París,CDG,Francia,4,All Inclusive,499,2854.65,3.6
+H0262,Imperial Cancún,Cancún,CUN,México,4,All Inclusive,455,1603.53,3.8
+H0263,Imperial Los Cabos,Los Cabos,SJD,México,3,All Inclusive,102,1080.64,3.1
+H0264,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,256,1923.82,3.4
+H0265,Mar Monterrey,Monterrey,MTY,México,4,All Inclusive,336,2624.79,3.8
+H0266,Royal Acapulco,Acapulco,ACA,México,4, all inclusive ,474,2300.45,3.8
+H0267,Palms Huatulco,Huatulco,HUX,México,3,All Inclusive,370,1097.9,3.3
+H0268,Mar Vancouver,Vancouver,YVR,Canadá,5,Desayuno incluido,247,5334.11,
+H0269,Sol Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,256,2184.82,3.9
+H0270,Plaza Mérida,Mérida,MID,México,3,Solo habitación,471,1161.09,3.7
+H0271,Mar Madrid,Madrid,MAD,España,5,Solo habitación,181,5762.68,3.8
+H0272,Vista Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,90,2808.17,3.7
+H0273,Sol Guadalajara,Guadalajara,GDL,México,5,Solo habitación,241,3773.49,3.7
+H0274,Mar Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,390,1997.5,4.0
+H0275,Aqua Miami,Miami,MIA,Estados Unidos,3,Desayuno incluido,243,2071.96,3.3
+H0276,Imperial París,París,CDG,Francia,4,Desayuno incluido,204,3247.64,3.2
+H0277,Palms Cancún,Cancún,CUN,México,4,Solo habitación,463,2676.48,3.6
+H0278,Grand Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,159,2208.39,3.8
+H0279,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,40,2170.61,3.5
+H0280,Royal Monterrey,Monterrey,MTY,México,4,Solo habitación,446,2263.12,4.0
+H0281,Aqua Acapulco,Acapulco,ACA,México,4,Desayuno incluido,148,2707.2,3.4
+H0282,Mar Huatulco,Huatulco,HUX,México,4,Media pensión,106,2348.66,3.6
+H0283,Sol Vancouver,Vancouver,YVR,Canadá,3,All Inclusive,331,1535.7,3.8
+H0284,Imperial Nueva York,Nueva York,JFK,Estados Unidos,3,All Inclusive,112,1586.89,3.2
+H0285,Plaza Mérida,Mérida,MID,México,4,Media pensión,73,1588.69,3.4
+H0286,Sol Madrid,Madrid,MAD,España,5,Desayuno incluido,168,5208.91,4.3
+H0287,Mar Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,476,3701.47,3.7
+H0288,Royal Guadalajara,Guadalajara,GDL,México,3,Media pensión,203,1061.26,3.6
+H0289,Mar Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,395,2283.05,3.9
+H0290,Aqua Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,455,3839.92,3.7
+H0291,Aqua París,París,CDG,Francia,3,All Inclusive,115,2376.34,3.3
+H0292,Grand Cancún,Cancún,CUN,México,4,Desayuno incluido,330,2616.1,3.8
+H0293,Costa Los Cabos,Los Cabos,SJD,México,5,All Inclusive,417,3072.24,4.6
+H0294,Plaza Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,443,3690.76,3.6
+H0295,Grand Monterrey,Monterrey,MTY,México,5,Solo habitación,306,3566.5,4.1
+H0296,Vista Acapulco,Acapulco,ACA,México,3,Media pensión,283,1440.55,3.2
+H0297,Grand Huatulco,Huatulco,HUX,México,4,Solo habitación,70,2123.59,3.6
+H0298,Royal Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,478,4047.73,3.9
+H0299,Palms Nueva York,Nueva York,JFK,Estados Unidos,3,All Inclusive,273,1885.89,3.9
+H0300,Vista Mérida,Mérida,MID,México,5,Media pensión,481,3022.99,3.7
+H0301,Mar Madrid,Madrid,MAD,España,3,Solo habitación,150,2684.02,4.1
+H0302,Imperial Orlando,Orlando,MCO,Estados Unidos,5,Desayuno incluido,104,5283.06,4.0
+H0303,Aqua Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,229,1720.03,3.9
+H0304,Grand Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,290,2280.14,3.4
+H0305,Vista Miami,Miami,MIA,Estados Unidos,3,Desayuno incluido,81,1605.8,3.3
+H0306,Royal París,París,CDG,Francia,4,Media pensión,200,3331.83,3.4
+H0307,Mar Cancún,Cancún,CUN,México,4,All Inclusive,242,2330.7,3.9
+H0308,Vista Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,92,1517.05,3.6
+H0309,Costa Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,451,4320.51,4.4
+H0310,Imperial Monterrey,Monterrey,MTY,México,4,Media pensión,173,2492.4,3.7
+H0311,Vista Acapulco,Acapulco,ACA,México,5,Solo habitación,426,2851.21,3.6
+H0312,Mar Huatulco,Huatulco,HUX,México,3,Media pensión,198,1448.41,3.8
+H0313,Royal Vancouver,Vancouver,YVR,Canadá,5,Solo habitación,145,5321.89,4.1
+H0314,Royal Nueva York,Nueva York,JFK,Estados Unidos,4,Solo habitación,467,2413.84,3.9
+H0315,Vista Mérida,Mérida,MID,México,3,Solo habitación,201,1762.38,3.8
+H0316,Palms Madrid,Madrid,MAD,España,5,Solo habitación,208,5140.46,4.0
+H0317,Vista Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,55,4761.63,3.7
+H0318,Vista Guadalajara,Guadalajara,GDL,México,4,Solo habitación,160,1735.09,3.1
+H0319,Royal Puerto Vallarta,Puerto Vallarta,PVR,México,5,Desayuno incluido,224,2828.8,4.2
+H0320,Plaza Miami,Miami,MIA,Estados Unidos,4,All Inclusive,138,3980.04,3.4
+H0321,Palms París,París,CDG,Francia,4,Desayuno incluido,203,4160.19,3.8
+H0322,Imperial Cancún,Cancún,CUN,México,3,Solo habitación,235,1572.3,3.3
+H0323,Plaza Los Cabos,Los Cabos,SJD,México,3,Solo habitación,62,1580.87,3.7
+H0324,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,5,Solo habitación,486,3720.32,3.5
+H0325,Palms Monterrey,Monterrey,MTY,México,5,Solo habitación,432,3113.29,4.0
+H0326,Sol Acapulco,Acapulco,ACA,México,3,Solo habitación,319,1081.21,3.0
+H0327,Vista Huatulco,Huatulco,HUX,México,3,Solo habitación,107,1135.66,3.4
+H0328,Vista Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,40,3495.65,3.6
+H0329,Aqua Nueva York,Nueva York,JFK,Estados Unidos,5,Desayuno incluido,445,4480.56,4.2
+H0330,Plaza Mérida,Mérida,MID,México,3,Desayuno incluido,317,1464.37,3.6
+H0331,Grand Madrid,Madrid,MAD,España,5,Desayuno incluido,362,4602.85,4.0
+H0332,Sol Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,491,3570.25,3.8
+H0333,Costa Guadalajara,Guadalajara,GDL,México,5,Media pensión,279,2645.42,3.8
+H0334,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,4,Media pensión,82,1605.75,3.6
+H0335,Costa Miami,Miami,MIA,Estados Unidos,4,Solo habitación,389,3511.85,3.7
+H0336,Sol París,París,CDG,Francia,4,Media pensión,142,3151.61,3.5
+H0337,Plaza Cancún,Cancún,CUN,México,5,All Inclusive,270,2967.86,3.8
+H0338,Aqua Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,46,1701.99,3.3
+H0339,Imperial Las Vegas,Las Vegas,LAS,Estados Unidos,5,All Inclusive,196,4976.29,4.0
+H0340,Aqua Monterrey,Monterrey,MTY,México,5,Desayuno incluido,86,3300.28,4.0
+H0341,Royal Acapulco,Acapulco,ACA,México,4,Desayuno incluido,291,2578.42,3.6
+H0342,Vista Huatulco,Huatulco,HUX,México,4,Desayuno incluido,305,1952.02,3.5
+H0343,Imperial Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,394,1926.13,3.2
+H0344,Palms Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,286,3709.18,3.7
+H0345,Aqua Mérida,Mérida,MID,México,4,Desayuno incluido,251,2010.86,4.1
+H0346,Sol Madrid,Madrid,MAD,España,5,Solo habitación,213,4761.2,4.3
+H0347,Aqua Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,436,3437.21,3.8
+H0348,Plaza Guadalajara,Guadalajara,GDL,México,4,Media pensión,498,2800.89,3.5
+H0349,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,3,All Inclusive,417,1014.95,3.7
+H0350,Grand Miami,Miami,MIA,Estados Unidos,4,Solo habitación,376,3500.27,3.3
+H0351,Royal París,París,CDG,Francia,3,All Inclusive,261,2732.92,3.6
+H0352,Plaza Cancún,Cancún,CUN,México,3,All Inclusive,292,1375.55,3.9
+H0353,Grand Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,289,1602.39,3.7
+H0354,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,63,2432.06,3.8
+H0355,Vista Monterrey,Monterrey,MTY,México,4,Solo habitación,350,2385.1,3.6
+H0356,Palms Acapulco,Acapulco,ACA,México,4,Solo habitación,134,2268.47,3.4
+H0357,Plaza Huatulco,Huatulco,HUX,México,3,Desayuno incluido,268,1311.76,3.5
+H0358,Grand Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,347,2359.7,3.4
+H0359,Mar Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,218,1908.97,3.7
+H0360,Grand Mérida,Mérida,MID,México,3,Media pensión,169,1704.45,3.5
+H0361,Costa Madrid,Madrid,MAD,España,3,Media pensión,426,2542.57,3.6
+H0362,Vista Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,438,2855.21,3.9
+H0363,Mar Guadalajara,Guadalajara,GDL,México,5,All Inclusive,275,2241.49,3.8
+H0364,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,444,1663.1,3.7
+H0365,Grand Miami,Miami,MIA,Estados Unidos,4,Solo habitación,380,4026.17,4.0
+H0366,Royal París,París,CDG,Francia,5,Media pensión,494,3811.42,4.0
+H0367,Imperial Cancún,Cancún,CUN,México,5,Solo habitación,102,3331.45,3.9
+H0368,Sol Los Cabos,Los Cabos,SJD,México,4,Media pensión,88,2593.86,3.9
+H0369,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,120,3327.82,3.9
+H0370,Aqua Monterrey,Monterrey,MTY,México,4,Media pensión,162,2593.87,3.9
+H0371,Grand Acapulco,Acapulco,ACA,México,4,All Inclusive,463,2744.58,4.2
+H0372,Palms Huatulco,Huatulco,HUX,México,5,Media pensión,299,2543.38,4.5
+H0373,Mar Vancouver,Vancouver,YVR,Canadá,3,All Inclusive,206,2128.32,3.5
+H0374,Imperial Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,471,4923.99,4.2
+H0375,Plaza Mérida,Mérida,MID,México,4,Media pensión,138,2102.21,4.2
+H0376,Sol Madrid,Madrid,MAD,España,3,Media pensión,211,2425.17,3.0
+H0377,Mar Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,385,3402.45,4.0
+H0378,Royal Guadalajara,Guadalajara,GDL,México,5,Media pensión,181,2155.92,4.2
+H0379,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,5,Media pensión,197,3486.25,3.6
+H0380,Sol Miami,Miami,MIA,Estados Unidos,4,Media pensión,360,4136.91,3.8
+H0381,Aqua París,París,CDG,Francia,5,Solo habitación,452,4366.64,3.6
+H0382,Royal Cancún,Cancún,CUN,México,4,Solo habitación,62,1976.33,4.0
+H0383,Imperial Los Cabos,Los Cabos,SJD,México,4,All Inclusive,62,2548.98,3.6
+H0384,Vista Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,55,4091.44,3.4
+H0385,Vista Monterrey,Monterrey,MTY,México,4,All Inclusive,451,1888.09,3.9
+H0386,Vista Acapulco,Acapulco,ACA,México,5,Solo habitación,315,3391.63,4.2
+H0387,Aqua Huatulco,Huatulco,HUX,México,3,All Inclusive,47,1029.74,3.4
+H0388,Palms Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,219,2869.02,4.1
+H0389,Sol Nueva York,Nueva York,JFK,Estados Unidos,3,All Inclusive,337,1523.46,3.3
+H0390,Imperial Mérida,Mérida,MID,México,3,Media pensión,338,1436.15,3.2
+H0391,Grand Madrid,Madrid,MAD,España,4,Media pensión,435,2735.93,3.5
+H0392,Sol Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,75,2428.2,4.1
+H0393,Plaza Guadalajara,Guadalajara,GDL,México,4,Solo habitación,414,1875.23,4.0
+H0394,Grand Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,250,2282.05,3.6
+H0395,Grand Miami,Miami,MIA,Estados Unidos,4,Solo habitación,398,3833.44,3.5
+H0396,Aqua París,París,CDG,Francia,4,Desayuno incluido,102,3517.11,3.9
+H0397,Mar Cancún,Cancún,CUN,México,3,Solo habitación,277,1717.76,3.0
+H0398,Palms Los Cabos,Los Cabos,SJD,México,3,Solo habitación,223,1229.82,3.4
+H0399,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,453,5124.45,4.1
+H0400,Imperial Monterrey,Monterrey,MTY,México,5,All Inclusive,115,2698.93,4.3
+H0401,Costa Acapulco,Acapulco,ACA,México,4,Media pensión,104,2462.25,4.2
+H0402,Vista Huatulco,Huatulco,HUX,México,4,Media pensión,272,2144.82,4.0
+H0403,Costa Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,390,2269.38,3.2
+H0404,Sol Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,42,3084.98,4.1
+H0405,Grand Mérida,Mérida,MID,México,5,Media pensión,67,2151.7,3.6
+H0406,Vista Madrid,Madrid,MAD,España,4,Desayuno incluido,400,4033.01,3.7
+H0407,Palms Orlando,Orlando,MCO,Estados Unidos,3,Media pensión,300,2504.01,3.4
+H0408,Vista Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,438,2255.41,3.6
+H0409,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,272,2143.9,4.0
+H0410,Aqua Miami,Miami,MIA,Estados Unidos,5,Media pensión,368,3828.9,4.1
+H0411,Royal París,París,CDG,Francia,3,Solo habitación,351,2938.73,3.5
+H0412,Grand Cancún,Cancún,CUN,México,5,All Inclusive,482,3168.71,4.3
+H0413,Imperial Los Cabos,Los Cabos,SJD,México,4,Media pensión,95,1881.08,3.4
+H0414,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,5,Desayuno incluido,317,5543.77,4.0
+H0415,Sol Monterrey,Monterrey,MTY,México,5,Desayuno incluido,387,3480.71,3.8
+H0416,Sol Acapulco,Acapulco,ACA,México,4,Desayuno incluido,398,2805.55,3.8
+H0417,Vista Huatulco,Huatulco,HUX,México,3,All Inclusive,116,1717.81,3.6
+H0418,Grand Vancouver,Vancouver,YVR,Canadá,5,All Inclusive,179,4967.25,4.2
+H0419,Sol Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,126,2960.66,3.8
+H0420,Sol Mérida,Mérida,MID,México,4,Solo habitación,80,2490.88,3.8
+H0421,Grand Madrid,Madrid,MAD,España,5,Media pensión,161,4637.54,4.1
+H0422,Vista Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,418,3429.56,4.1
+H0423,Costa Guadalajara,Guadalajara,GDL,México,3,Media pensión,200,1530.74,3.8
+H0424,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,352,2251.71,3.8
+H0425,Mar Miami,Miami,MIA,Estados Unidos,4,Media pensión,203,2949.23,3.2
+H0426,Aqua París,París,CDG,Francia,5,Solo habitación,266,6013.52,4.1
+H0427,Costa Cancún,Cancún,CUN,México,3,Desayuno incluido,354,1674.46,3.5
+H0428,Imperial Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,56,2755.5,4.0
+H0429,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,5,All Inclusive,114,5237.42,3.9
+H0430,Mar Monterrey,Monterrey,MTY,México,3,Media pensión,194,1036.15,3.4
+H0431,Imperial Acapulco,Acapulco,ACA,México,4,Desayuno incluido,78,1750.48,3.5
+H0432,Mar Huatulco,Huatulco,HUX,México,5,Desayuno incluido,65,3896.53,3.8
+H0433,Sol Vancouver,Vancouver,YVR,Canadá,4,Media pensión,234,2718.13,3.6
+H0434,Royal Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,83,5095.32,4.2
+H0435,Royal Mérida,Mérida,MID,México,5,Solo habitación,378,2956.46,4.3
+H0436,Imperial Madrid,Madrid,MAD,España,3,Solo habitación,178,2899.74,3.2
+H0437,Sol Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,343,3879.82,3.5
+H0438,Mar Guadalajara,Guadalajara,GDL,México,5,Solo habitación,152,3375.42,4.0
+H0439,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,4, all inclusive ,131,2601.82,3.5
+H0440,Aqua Miami,Miami,MIA,Estados Unidos,4,Media pensión,346,4061.34,3.9
+H0441,Royal París,París,CDG,Francia,3,Media pensión,485,2819.33,3.7
+H0442,Mar Cancún,Cancún,CUN,México,4,Desayuno incluido,67,2829.32,4.2
+H0443,Costa Los Cabos,Los Cabos,SJD,México,5,Media pensión,94,2550.31,4.0
+H0444,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,281,4276.65,3.4
+H0445,Imperial Monterrey,Monterrey,MTY,México,4,All Inclusive,79,2363.01,4.1
+H0446,Royal Acapulco,Acapulco,ACA,México,4,Media pensión,149,2124.61,3.3
+H0447,Costa Huatulco,Huatulco,HUX,México,3,Media pensión,347,1018.08,3.6
+H0448,Sol Vancouver,Vancouver,YVR,Canadá,3, all inclusive ,262,2717.38,3.6
+H0449,Costa Nueva York,Nueva York,JFK,Estados Unidos,5,All Inclusive,411,5265.43,3.8
+H0450,Costa Mérida,Mérida,MID,México,4,Solo habitación,297,1925.52,3.4
+H0451,Royal Madrid,Madrid,MAD,España,4,Media pensión,101,4474.92,3.4
+H0452,Mar Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,368,2231.71,3.4
+H0453,Aqua Guadalajara,Guadalajara,GDL,México,4, all inclusive ,248,2309.52,3.9
+H0454,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,4,Media pensión,380,2315.57,4.1
+H0455,Palms Miami,Miami,MIA,Estados Unidos,3,Solo habitación,243,2236.36,3.8
+H0456,Mar París,París,CDG,Francia,3,All Inclusive,54,2800.71,3.3
+H0457,Mar Cancún,Cancún,CUN,México,3,Desayuno incluido,106,1660.22,3.5
+H0458,Palms Los Cabos,Los Cabos,SJD,México,4,Solo habitación,480,2872.85,3.8
+H0459,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,157,5827.67,3.8
+H0460,Plaza Monterrey,Monterrey,MTY,México,5,Desayuno incluido,329,2346.71,4.2
+H0461,Royal Acapulco,Acapulco,ACA,México,3,Desayuno incluido,452,1253.44,3.2
+H0462,Palms Huatulco,Huatulco,HUX,México,3,All Inclusive,102,1257.11,3.0
+H0463,Royal Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,242,1911.9,3.3
+H0464,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,432,2929.5,3.9
+H0465,Mar Mérida,Mérida,MID,México,4,Desayuno incluido,417,1903.19,3.9
+H0466,Sol Madrid,Madrid,MAD,España,5,Media pensión,71,6244.6,4.3
+H0467,Plaza Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,340,4220.27,3.7
+H0468,Palms Guadalajara,Guadalajara,GDL,México,3,All Inclusive,195,1690.78,3.9
+H0469,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,143,1937.57,3.7
+H0470,Mar Miami,Miami,MIA,Estados Unidos,4,All Inclusive,418,3605.05,3.2
+H0471,Grand París,París,CDG,Francia,3,All Inclusive,314,1621.83,3.5
+H0472,Imperial Cancún,Cancún,CUN,México,4,All Inclusive,489,2591.92,4.0
+H0473,Royal Los Cabos,Los Cabos,SJD,México,4,Media pensión,321,1796.11,3.8
+H0474,Vista Las Vegas,Las Vegas,LAS,Estados Unidos,5,Desayuno incluido,161,4205.39,3.7
+H0475,Royal Monterrey,Monterrey,MTY,México,4,Solo habitación,351,1894.97,3.7
+H0476,Costa Acapulco,Acapulco,ACA,México,5,Media pensión,41,2703.72,3.7
+H0477,Palms Huatulco,Huatulco,HUX,México,4,Media pensión,115,1945.21,4.2
+H0478,Plaza Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,199,3740.95,3.7
+H0479,Imperial Nueva York,Nueva York,JFK,Estados Unidos,3,Desayuno incluido,453,2065.41,3.5
+H0480,Sol Mérida,Mérida,MID,México,3,All Inclusive,179,1268.86,3.7
+H0481,Imperial Madrid,Madrid,MAD,España,4,Desayuno incluido,258,2617.23,3.8
+H0482,Imperial Orlando,Orlando,MCO,Estados Unidos,3,All Inclusive,321,2420.62,3.4
+H0483,Sol Guadalajara,Guadalajara,GDL,México,4,Solo habitación,460,2385.9,3.8
+H0484,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,Media pensión,70,1855.58,3.6
+H0485,Aqua Miami,Miami,MIA,Estados Unidos,4, all inclusive ,171,3194.49,3.8
+H0486,Costa París,París,CDG,Francia,5,Desayuno incluido,394,5420.41,4.0
+H0487,Plaza Cancún,Cancún,CUN,México,3,Solo habitación,325,1565.75,3.5
+H0488,Costa Los Cabos,Los Cabos,SJD,México,3,All Inclusive,69,1582.27,3.5
+H0489,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,429,3561.48,4.0
+H0490,Royal Monterrey,Monterrey,MTY,México,5,Solo habitación,320,2773.81,4.0
+H0491,Costa Acapulco,Acapulco,ACA,México,3,Media pensión,260,1114.99,3.5
+H0492,Imperial Huatulco,Huatulco,HUX,México,5,All Inclusive,409,2683.33,4.4
+H0493,Imperial Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,406,3119.29,3.2
+H0494,Costa Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,323,2418.9,3.3
+H0495,Costa Mérida,Mérida,MID,México,3,All Inclusive,130,1272.53,3.6
+H0496,Plaza Madrid,Madrid,MAD,España,4,Desayuno incluido,169,4505.7,4.0
+H0497,Vista Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,294,3926.22,4.4
+H0498,Mar Guadalajara,Guadalajara,GDL,México,4,Solo habitación,167,2411.3,4.1
+H0499,Grand Puerto Vallarta,Puerto Vallarta,PVR,México,5,Solo habitación,118,2206.32,4.1
+H0500,Imperial Miami,Miami,MIA,Estados Unidos,4,Desayuno incluido,156,3618.33,3.0
+H0501,Vista París,París,CDG,Francia,4,All Inclusive,425,3669.24,3.8
+H0502,Plaza Cancún,Cancún,CUN,México,5,Desayuno incluido,211,2897.74,3.9
+H0503,Royal Los Cabos,Los Cabos,SJD,México,4,Solo habitación,206,2589.63,3.8
+H0504,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,114,3590.73,3.7
+H0505,Imperial Monterrey,Monterrey,MTY,México,4,Solo habitación,221,1961.91,3.5
+H0506,Aqua Acapulco,Acapulco,ACA,México,4,Desayuno incluido,76,1964.32,3.8
+H0507,Aqua Huatulco,Huatulco,HUX,México,4,All Inclusive,308,2096.25,3.9
+H0508,Sol Vancouver,Vancouver,YVR,Canadá,3,Media pensión,75,2332.95,3.6
+H0509,Palms Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,222,3701.12,4.4
+H0510,Costa Mérida,Mérida,MID,México,3,Solo habitación,324,1460.53,3.0
+H0511,Costa Madrid,Madrid,MAD,España,4,Solo habitación,294,2672.89,4.1
+H0512,Costa Orlando,Orlando,MCO,Estados Unidos,3,All Inclusive,484,2113.43,3.6
+H0513,Aqua Guadalajara,Guadalajara,GDL,México,4,Solo habitación,312,1695.37,3.5
+H0514,Mar Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,465,2585.49,3.3
+H0515,Imperial Miami,Miami,MIA,Estados Unidos,3,Desayuno incluido,120,1593.03,3.8
+H0516,Plaza París,París,CDG,Francia,5,Desayuno incluido,471,3965.62,4.0
+H0517,Sol Cancún,Cancún,CUN,México,4,Media pensión,435,1973.99,3.4
+H0518,Imperial Los Cabos,Los Cabos,SJD,México,4,Solo habitación,163,2231.8,4.1
+H0519,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,390,5804.97,3.8
+H0520,Royal Monterrey,Monterrey,MTY,México,5,All Inclusive,370,3267.55,4.5
+H0521,Plaza Acapulco,Acapulco,ACA,México,4,Media pensión,329,2683.95,3.7
+H0522,Palms Huatulco,Huatulco,HUX,México,3,All Inclusive,455,1605.96,3.5
+H0523,Costa Vancouver,Vancouver,YVR,Canadá,3,Media pensión,313,1587.64,3.5
+H0524,Imperial Nueva York,Nueva York,JFK,Estados Unidos,5,Desayuno incluido,138,4518.87,3.4
+H0525,Sol Mérida,Mérida,MID,México,5,All Inclusive,120,3147.87,4.0
+H0526,Vista Madrid,Madrid,MAD,España,3,Media pensión,478,1754.17,4.1
+H0527,Vista Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,383,2648.58,3.7
+H0528,Royal Guadalajara,Guadalajara,GDL,México,3,All Inclusive,84,1415.65,3.8
+H0529,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,145,2419.04,3.6
+H0530,Plaza Miami,Miami,MIA,Estados Unidos,5,Media pensión,367,5416.7,3.7
+H0531,Costa París,París,CDG,Francia,5,Solo habitación,318,5335.12,4.1
+H0532,Mar Cancún,Cancún,CUN,México,4,Desayuno incluido,136,2092.3,3.4
+H0533,Imperial Los Cabos,Los Cabos,SJD,México,4,Solo habitación,455,2863.64,4.3
+H0534,Imperial Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,150,2464.77,3.5
+H0535,Grand Monterrey,Monterrey,MTY,México,5,Solo habitación,178,2537.51,3.8
+H0536,Imperial Acapulco,Acapulco,ACA,México,3,Solo habitación,441,1789.11,3.0
+H0537,Mar Huatulco,Huatulco,HUX,México,5,All Inclusive,224,3196.39,3.9
+H0538,Costa Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,497,3597.43,3.9
+H0539,Sol Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,493,2550.03,3.7
+H0540,Imperial Mérida,Mérida,MID,México,4,Media pensión,217,1708.09,3.5
+H0541,Plaza Madrid,Madrid,MAD,España,5,Desayuno incluido,94,5373.67,4.2
+H0542,Grand Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,194,3677.41,3.5
+H0543,Palms Guadalajara,Guadalajara,GDL,México,5,Desayuno incluido,85,3605.28,4.3
+H0544,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,137,2813.72,3.5
+H0545,Grand Miami,Miami,MIA,Estados Unidos,3,Solo habitación,55,2595.95,3.3
+H0546,Imperial París,París,CDG,Francia,5,All Inclusive,347,4073.09,4.1
+H0547,Palms Cancún,Cancún,CUN,México,3,Media pensión,410,1582.31,3.1
+H0548,Aqua Los Cabos,Los Cabos,SJD,México,5,All Inclusive,205,3483.42,3.8
+H0549,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,488,2999.33,4.0
+H0550,Palms Monterrey,Monterrey,MTY,México,4,All Inclusive,335,2469.06,3.7
+H0551,Sol Acapulco,Acapulco,ACA,México,4,All Inclusive,302,2588.22,3.8
+H0552,Sol Huatulco,Huatulco,HUX,México,4,Solo habitación,134,1647.24,3.5
+H0553,Aqua Vancouver,Vancouver,YVR,Canadá,5,Media pensión,150,5369.73,3.9
+H0554,Costa Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,152,2438.04,3.4
+H0555,Grand Mérida,Mérida,MID,México,4,All Inclusive,141,2118.41,3.8
+H0556,Vista Madrid,Madrid,MAD,España,3,All Inclusive,206,2202.93,3.9
+H0557,Aqua Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,247,2413.75,3.0
+H0558,Royal Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,433,2372.87,3.7
+H0559,Vista Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,183,1026.6,4.2
+H0560,Royal Miami,Miami,MIA,Estados Unidos,3,Media pensión,121,2378.72,3.4
+H0561,Costa París,París,CDG,Francia,4,All Inclusive,317,4083.36,3.8
+H0562,Sol Cancún,Cancún,CUN,México,4,Solo habitación,193,2046.38,3.7
+H0563,Imperial Los Cabos,Los Cabos,SJD,México,5,Solo habitación,404,2330.26,3.8
+H0564,Royal Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,104,3997.81,3.8
+H0565,Mar Monterrey,Monterrey,MTY,México,4,Media pensión,370,1959.99,3.6
+H0566,Grand Acapulco,Acapulco,ACA,México,5,All Inclusive,488,2216.63,3.9
+H0567,Palms Huatulco,Huatulco,HUX,México,4,Solo habitación,369,2854.63,4.0
+H0568,Grand Vancouver,Vancouver,YVR,Canadá,3,All Inclusive,351,2079.27,3.7
+H0569,Sol Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,401,2454.48,3.1
+H0570,Royal Mérida,Mérida,MID,México,4,Desayuno incluido,146,1778.92,3.2
+H0571,Royal Madrid,Madrid,MAD,España,4,All Inclusive,448,2617.04,3.9
+H0572,Costa Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,296,2820.1,3.6
+H0573,Vista Guadalajara,Guadalajara,GDL,México,5,Desayuno incluido,146,2439.36,4.2
+H0574,Vista Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,120,2210.72,3.7
+H0575,Imperial Miami,Miami,MIA,Estados Unidos,3,Solo habitación,54,2569.99,3.4
+H0576,Royal París,París,CDG,Francia,3,All Inclusive,469,2915.99,3.7
+H0577,Costa Cancún,Cancún,CUN,México,4,All Inclusive,330,2313.65,4.0
+H0578,Costa Los Cabos,Los Cabos,SJD,México,3,All Inclusive,202,1763.64,3.0
+H0579,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,246,3701.75,3.8
+H0580,Grand Monterrey,Monterrey,MTY,México,4,Desayuno incluido,193,1774.64,4.1
+H0581,Aqua Acapulco,Acapulco,ACA,México,5,Media pensión,67,3354.93,4.0
+H0582,Mar Huatulco,Huatulco,HUX,México,4,Desayuno incluido,208,1633.94,3.3
+H0583,Vista Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,49,3985.88,3.7
+H0584,Mar Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,268,1585.58,3.8
+H0585,Palms Mérida,Mérida,MID,México,3,Media pensión,495,1017.42,3.6
+H0586,Grand Madrid,Madrid,MAD,España,4,All Inclusive,62,3843.5,3.5
+H0587,Mar Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,359,4485.84,4.1
+H0588,Aqua Guadalajara,Guadalajara,GDL,México,4,Solo habitación,390,2654.23,4.1
+H0589,Royal Puerto Vallarta,Puerto Vallarta,PVR,México,4,Solo habitación,57,2703.57,3.4
+H0590,Sol Miami,Miami,MIA,Estados Unidos,5,Desayuno incluido,56,4547.83,4.1
+H0591,Plaza París,París,CDG,Francia,3,All Inclusive,444,2365.87,3.4
+H0592,Imperial Cancún,Cancún,CUN,México,4,Media pensión,459,2121.21,4.0
+H0593,Royal Los Cabos,Los Cabos,SJD,México,4,All Inclusive,201,2620.36,3.5
+H0594,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,93,4082.65,3.7
+H0595,Aqua Monterrey,Monterrey,MTY,México,5,All Inclusive,67,2343.93,4.4
+H0596,Sol Acapulco,Acapulco,ACA,México,4,Solo habitación,308,2465.94,3.7
+H0597,Grand Huatulco,Huatulco,HUX,México,4,Solo habitación,205,2494.3,3.7
+H0598,Plaza Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,459,2952.43,3.7
+H0599,Palms Nueva York,Nueva York,JFK,Estados Unidos,5,Media pensión,120,4857.95,3.9
+H0600,Plaza Mérida,Mérida,MID,México,3,Desayuno incluido,357,1540.94,3.8
+H0601,Grand Madrid,Madrid,MAD,España,3,Desayuno incluido,416,2834.22,3.5
+H0602,Imperial Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,58,3973.75,3.5
+H0603,Aqua Guadalajara,Guadalajara,GDL,México,5,Media pensión,348,2830.28,4.4
+H0604,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,5,Solo habitación,227,3548.04,3.8
+H0605,Palms Miami,Miami,MIA,Estados Unidos,3,All Inclusive,144,2549.59,3.4
+H0606,Mar París,París,CDG,Francia,4,All Inclusive,437,3470.92,4.4
+H0607,Plaza Cancún,Cancún,CUN,México,4,Solo habitación,408,2627.19,3.6
+H0608,Costa Los Cabos,Los Cabos,SJD,México,4,Solo habitación,287,1649.89,3.5
+H0609,Costa Las Vegas,Las Vegas,LAS,Estados Unidos,3,Media pensión,102,2044.67,3.7
+H0610,Royal Monterrey,Monterrey,MTY,México,3,All Inclusive,385,1018.22,4.0
+H0611,Grand Acapulco,Acapulco,ACA,México,4,Media pensión,115,1838.35,4.0
+H0612,Palms Huatulco,Huatulco,HUX,México,3,Solo habitación,474,1715.34,3.6
+H0613,Costa Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,243,2481.06,3.2
+H0614,Vista Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,398,2375.98,3.5
+H0615,Plaza Mérida,Mérida,MID,México,3, all inclusive ,110,1282.24,3.4
+H0616,Aqua Madrid,Madrid,MAD,España,3,All Inclusive,66,2329.36,3.2
+H0617,Vista Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,488,3020.17,4.3
+H0618,Vista Guadalajara,Guadalajara,GDL,México,4,All Inclusive,214,2645.42,3.8
+H0619,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,444,1067.33,3.5
+H0620,Imperial Miami,Miami,MIA,Estados Unidos,5, all inclusive ,365,3604.94,3.8
+H0621,Costa París,París,CDG,Francia,4,All Inclusive,86,4506.2,3.3
+H0622,Mar Cancún,Cancún,CUN,México,3,Media pensión,54,1766.72,3.0
+H0623,Plaza Los Cabos,Los Cabos,SJD,México,3,Media pensión,420,1409.9,3.5
+H0624,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,5,Solo habitación,113,4795.21,3.9
+H0625,Vista Monterrey,Monterrey,MTY,México,3,Desayuno incluido,464,1730.01,3.4
+H0626,Imperial Acapulco,Acapulco,ACA,México,5,All Inclusive,407,2347.71,4.2
+H0627,Costa Huatulco,Huatulco,HUX,México,5,Desayuno incluido,169,2311.21,3.5
+H0628,Mar Vancouver,Vancouver,YVR,Canadá,3,Media pensión,111,2298.97,3.5
+H0629,Aqua Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,437,2492.22,3.7
+H0630,Aqua Mérida,Mérida,MID,México,3,Media pensión,319,1723.67,3.6
+H0631,Royal Madrid,Madrid,MAD,España,5,Media pensión,438,4133.83,3.9
+H0632,Sol Orlando,Orlando,MCO,Estados Unidos,4,Media pensión,81,2479.06,3.7
+H0633,Vista Guadalajara,Guadalajara,GDL,México,3,Media pensión,457,1815.49,3.7
+H0634,Grand Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,170,2753.64,3.6
+H0635,Royal Miami,Miami,MIA,Estados Unidos,5,Media pensión,155,3546.13,3.9
+H0636,Sol París,París,CDG,Francia,4,Solo habitación,251,2793.13,3.5
+H0637,Grand Cancún,Cancún,CUN,México,4,Media pensión,80,1960.64,3.7
+H0638,Plaza Los Cabos,Los Cabos,SJD,México,4,Media pensión,102,2382.78,4.0
+H0639,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,366,4517.41,3.7
+H0640,Grand Monterrey,Monterrey,MTY,México,4,Solo habitación,418,2262.05,3.6
+H0641,Costa Acapulco,Acapulco,ACA,México,3,Media pensión,348,1527.42,3.8
+H0642,Grand Huatulco,Huatulco,HUX,México,5,All Inclusive,153,2365.53,4.1
+H0643,Plaza Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,46,2443.73,3.2
+H0644,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,Desayuno incluido,220,3746.24,3.5
+H0645,Palms Mérida,Mérida,MID,México,3,Media pensión,293,1100.61,3.2
+H0646,Mar Madrid,Madrid,MAD,España,4,Desayuno incluido,175,4241.05,3.9
+H0647,Mar Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,283,4830.37,4.0
+H0648,Mar Guadalajara,Guadalajara,GDL,México,5,Solo habitación,433,3294.11,3.8
+H0649,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,Media pensión,311,1628.78,3.9
+H0650,Costa Miami,Miami,MIA,Estados Unidos,5,Media pensión,436,4240.62,4.0
+H0651,Palms París,París,CDG,Francia,5,Media pensión,329,4503.54,4.1
+H0652,Vista Cancún,Cancún,CUN,México,4,Desayuno incluido,229,2287.95,4.2
+H0653,Mar Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,158,1186.35,3.0
+H0654,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,112,2509.23,3.4
+H0655,Palms Monterrey,Monterrey,MTY,México,4,Media pensión,300,2760.37,3.8
+H0656,Aqua Acapulco,Acapulco,ACA,México,5,All Inclusive,231,3150.9,3.6
+H0657,Mar Huatulco,Huatulco,HUX,México,3,Solo habitación,465,1596.22,3.8
+H0658,Imperial Vancouver,Vancouver,YVR,Canadá,3,Media pensión,182,2432.06,3.1
+H0659,Imperial Nueva York,Nueva York,JFK,Estados Unidos,5,Media pensión,48,5406.92,3.7
+H0660,Costa Mérida,Mérida,MID,México,4,All Inclusive,189,2455.41,4.0
+H0661,Grand Madrid,Madrid,MAD,España,3,Media pensión,322,2119.99,3.7
+H0662,Imperial Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,120,2227.72,3.7
+H0663,Aqua Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,103,2050.57,4.0
+H0664,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,5,All Inclusive,159,3445.27,4.2
+H0665,Grand Miami,Miami,MIA,Estados Unidos,5,Media pensión,307,3425.88,4.2
+H0666,Vista París,París,CDG,Francia,4,Desayuno incluido,426,2861.63,4.0
+H0667,Aqua Cancún,Cancún,CUN,México,4, all inclusive ,448,1830.64,3.7
+H0668,Mar Los Cabos,Los Cabos,SJD,México,5,All Inclusive,481,2649.35,4.1
+H0669,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,5,Solo habitación,309,5033.7,3.7
+H0670,Sol Monterrey,Monterrey,MTY,México,3,Desayuno incluido,428,1408.43,3.4
+H0671,Grand Acapulco,Acapulco,ACA,México,3,All Inclusive,160,1334.51,3.8
+H0672,Mar Huatulco,Huatulco,HUX,México,4,Media pensión,244,1998.57,4.1
+H0673,Mar Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,220,3273.31,3.7
+H0674,Grand Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,90,4089.21,3.7
+H0675,Costa Mérida,Mérida,MID,México,4,All Inclusive,270,2363.43,3.4
+H0676,Imperial Madrid,Madrid,MAD,España,3,Solo habitación,298,2302.18,3.5
+H0677,Costa Orlando,Orlando,MCO,Estados Unidos,3,All Inclusive,341,2310.84,3.4
+H0678,Costa Guadalajara,Guadalajara,GDL,México,4,All Inclusive,288,2860.75,3.3
+H0679,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,5,All Inclusive,125,3611.04,4.0
+H0680,Plaza Miami,Miami,MIA,Estados Unidos,4,Media pensión,75,4197.53,3.4
+H0681,Sol París,París,CDG,Francia,4,Solo habitación,418,4160.73,3.9
+H0682,Royal Cancún,Cancún,CUN,México,4,Desayuno incluido,101,1692.52,3.8
+H0683,Plaza Los Cabos,Los Cabos,SJD,México,4,All Inclusive,459,1764.33,4.2
+H0684,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,55,2253.91,3.7
+H0685,Royal Monterrey,Monterrey,MTY,México,4,Media pensión,403,2053.59,3.6
+H0686,Sol Acapulco,Acapulco,ACA,México,4,All Inclusive,399,2770.52,4.5
+H0687,Imperial Huatulco,Huatulco,HUX,México,4,Solo habitación,499,2405.64,3.9
+H0688,Imperial Vancouver,Vancouver,YVR,Canadá,4,Media pensión,160,3549.38,3.9
+H0689,Sol Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,98,2691.85,3.1
+H0690,Mar Mérida,Mérida,MID,México,3,Desayuno incluido,269,1290.03,3.0
+H0691,Vista Madrid,Madrid,MAD,España,5,Desayuno incluido,146,5907.09,4.7
+H0692,Costa Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,52,3698.8,3.9
+H0693,Grand Guadalajara,Guadalajara,GDL,México,3,Media pensión,283,1818.29,3.7
+H0694,Royal Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,172,1997.78,3.5
+H0695,Aqua Miami,Miami,MIA,Estados Unidos,4,All Inclusive,93,2711.59,3.7
+H0696,Aqua París,París,CDG,Francia,5,Media pensión,401,5193.78,3.8
+H0697,Sol Cancún,Cancún,CUN,México,3,All Inclusive,69,1682.18,3.6
+H0698,Grand Los Cabos,Los Cabos,SJD,México,3,Media pensión,333,1318.12,3.3
+H0699,Royal Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,462,3319.73,3.6
+H0700,Grand Monterrey,Monterrey,MTY,México,4,Solo habitación,249,2006.91,3.4
+H0701,Imperial Acapulco,Acapulco,ACA,México,3,Media pensión,462,1775.17,3.9
+H0702,Imperial Huatulco,Huatulco,HUX,México,4,Solo habitación,47,2073.65,4.2
+H0703,Sol Vancouver,Vancouver,YVR,Canadá,5,All Inclusive,236,3254.37,4.1
+H0704,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,311,3530.37,3.6
+H0705,Costa Mérida,Mérida,MID,México,4,Solo habitación,435,2248.3,3.6
+H0706,Royal Madrid,Madrid,MAD,España,5,Media pensión,279,4351.36,3.6
+H0707,Costa Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,183,3655.35,4.2
+H0708,Costa Guadalajara,Guadalajara,GDL,México,4,Media pensión,470,2092.15,3.7
+H0709,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,481,2783.27,3.9
+H0710,Costa Miami,Miami,MIA,Estados Unidos,4,Media pensión,92,4000.39,3.8
+H0711,Plaza París,París,CDG,Francia,5,Desayuno incluido,47,5301.46,4.4
+H0712,Sol Cancún,Cancún,CUN,México,4,Desayuno incluido,227,2585.72,4.0
+H0713,Plaza Los Cabos,Los Cabos,SJD,México,5,Desayuno incluido,439,3896.34,3.9
+H0714,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,3,Media pensión,338,1551.44,3.4
+H0715,Palms Monterrey,Monterrey,MTY,México,4,Desayuno incluido,320,2059.78,4.1
+H0716,Vista Acapulco,Acapulco,ACA,México,3,All Inclusive,163,1699.4,3.2
+H0717,Royal Huatulco,Huatulco,HUX,México,4,Media pensión,254,2463.61,4.1
+H0718,Royal Vancouver,Vancouver,YVR,Canadá,4, all inclusive ,107,4293.39,3.9
+H0719,Costa Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,51,2757.65,3.4
+H0720,Costa Mérida,Mérida,MID,México,5,All Inclusive,57,3077.86,3.6
+H0721,Costa Madrid,Madrid,MAD,España,4,Media pensión,167,3785.39,3.9
+H0722,Plaza Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,452,1627.74,3.0
+H0723,Mar Guadalajara,Guadalajara,GDL,México,3,Media pensión,272,1763.0,4.2
+H0724,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,75,1083.25,3.7
+H0725,Imperial Miami,Miami,MIA,Estados Unidos,3,Media pensión,76,2513.15,3.3
+H0726,Aqua París,París,CDG,Francia,4,All Inclusive,401,4143.8,3.4
+H0727,Costa Cancún,Cancún,CUN,México,4,Desayuno incluido,271,2324.94,3.3
+H0728,Costa Los Cabos,Los Cabos,SJD,México,4,Solo habitación,490,1918.29,3.9
+H0729,Mar Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,400,3690.35,3.9
+H0730,Vista Monterrey,Monterrey,MTY,México,3,Desayuno incluido,114,1306.31,3.1
+H0731,Costa Acapulco,Acapulco,ACA,México,4,Media pensión,477,1992.36,3.5
+H0732,Imperial Huatulco,Huatulco,HUX,México,4,Media pensión,330,1841.33,4.4
+H0733,Royal Vancouver,Vancouver,YVR,Canadá,5,All Inclusive,484,3338.13,3.7
+H0734,Imperial Nueva York,Nueva York,JFK,Estados Unidos,3,All Inclusive,499,1911.84,3.1
+H0735,Imperial Mérida,Mérida,MID,México,5,Media pensión,224,3775.51,4.3
+H0736,Plaza Madrid,Madrid,MAD,España,3,Desayuno incluido,263,2559.22,3.3
+H0737,Plaza Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,399,2491.98,3.0
+H0738,Imperial Guadalajara,Guadalajara,GDL,México,4,Media pensión,267,1720.41,3.8
+H0739,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,3,All Inclusive,261,1606.85,3.3
+H0740,Aqua Miami,Miami,MIA,Estados Unidos,5,All Inclusive,146,4407.03,3.9
+H0741,Costa París,París,CDG,Francia,4,All Inclusive,402,3369.97,4.0
+H0742,Costa Cancún,Cancún,CUN,México,3,Media pensión,419,1248.74,3.5
+H0743,Palms Los Cabos,Los Cabos,SJD,México,4,All Inclusive,417,2415.63,3.6
+H0744,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,3,Media pensión,186,1692.26,3.0
+H0745,Sol Monterrey,Monterrey,MTY,México,5,Solo habitación,360,2353.07,3.7
+H0746,Mar Acapulco,Acapulco,ACA,México,3,Media pensión,498,1023.56,3.4
+H0747,Costa Huatulco,Huatulco,HUX,México,4,Solo habitación,56,1854.57,3.4
+H0748,Plaza Vancouver,Vancouver,YVR,Canadá,4,Desayuno incluido,368,4112.31,3.9
+H0749,Imperial Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,364,2106.58,3.8
+H0750,Grand Mérida,Mérida,MID,México,4,Desayuno incluido,188,1999.42,4.4
+H0751,Plaza Madrid,Madrid,MAD,España,4,Solo habitación,393,3925.93,4.1
+H0752,Grand Orlando,Orlando,MCO,Estados Unidos,5,Desayuno incluido,264,4525.07,4.4
+H0753,Grand Guadalajara,Guadalajara,GDL,México,4,All Inclusive,271,2392.4,3.8
+H0754,Plaza Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,65,1629.59,3.7
+H0755,Aqua Miami,Miami,MIA,Estados Unidos,5,All Inclusive,128,5509.05,3.5
+H0756,Grand París,París,CDG,Francia,4,Media pensión,220,3492.18,3.9
+H0757,Plaza Cancún,Cancún,CUN,México,4,Solo habitación,320,2669.02,3.7
+H0758,Sol Los Cabos,Los Cabos,SJD,México,4,All Inclusive,214,1587.86,4.1
+H0759,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,428,4131.97,3.5
+H0760,Sol Monterrey,Monterrey,MTY,México,3, all inclusive ,413,1668.7,3.5
+H0761,Imperial Acapulco,Acapulco,ACA,México,5,Solo habitación,470,2974.0,3.9
+H0762,Imperial Huatulco,Huatulco,HUX,México,4,Media pensión,309,1919.78,4.2
+H0763,Sol Vancouver,Vancouver,YVR,Canadá,5,All Inclusive,409,5257.91,4.0
+H0764,Plaza Nueva York,Nueva York,JFK,Estados Unidos,5,Media pensión,492,3502.91,4.3
+H0765,Imperial Mérida,Mérida,MID,México,5,Desayuno incluido,314,3831.99,3.7
+H0766,Imperial Madrid,Madrid,MAD,España,3,All Inclusive,444,2217.26,3.9
+H0767,Costa Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,74,2935.38,3.9
+H0768,Vista Guadalajara,Guadalajara,GDL,México,4,All Inclusive,175,2358.42,3.5
+H0769,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,389,1796.14,3.4
+H0770,Royal Miami,Miami,MIA,Estados Unidos,5,Solo habitación,319,5327.05,3.6
+H0771,Grand París,París,CDG,Francia,4,All Inclusive,373,4172.24,3.9
+H0772,Aqua Cancún,Cancún,CUN,México,4,Solo habitación,384,2064.59,3.9
+H0773,Sol Los Cabos,Los Cabos,SJD,México,3,Solo habitación,431,1428.8,3.9
+H0774,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,3,Solo habitación,345,2525.69,3.0
+H0775,Sol Monterrey,Monterrey,MTY,México,5,Desayuno incluido,211,3524.49,4.1
+H0776,Royal Acapulco,Acapulco,ACA,México,4,All Inclusive,380,2586.8,3.6
+H0777,Palms Huatulco,Huatulco,HUX,México,3,All Inclusive,472,1251.36,3.7
+H0778,Vista Vancouver,Vancouver,YVR,Canadá,4,Media pensión,160,4165.99,3.5
+H0779,Mar Nueva York,Nueva York,JFK,Estados Unidos,5,Media pensión,436,4017.63,3.6
+H0780,Royal Mérida,Mérida,MID,México,3,Desayuno incluido,362,1565.65,3.0
+H0781,Costa Madrid,Madrid,MAD,España,4,All Inclusive,347,3379.98,3.8
+H0782,Imperial Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,338,3402.05,3.9
+H0783,Royal Guadalajara,Guadalajara,GDL,México,3,Solo habitación,360,1513.35,3.5
+H0784,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,117,2115.77,3.8
+H0785,Palms Miami,Miami,MIA,Estados Unidos,5,All Inclusive,358,5279.33,3.6
+H0786,Palms París,París,CDG,Francia,3,Desayuno incluido,410,2323.55,3.9
+H0787,Mar Cancún,Cancún,CUN,México,4,Media pensión,396,1654.45,3.2
+H0788,Mar Los Cabos,Los Cabos,SJD,México,4,Media pensión,246,1702.6,3.6
+H0789,Imperial Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,393,3477.7,3.3
+H0790,Grand Monterrey,Monterrey,MTY,México,3,Desayuno incluido,449,1168.34,3.5
+H0791,Grand Acapulco,Acapulco,ACA,México,3,Solo habitación,494,1717.84,3.3
+H0792,Palms Huatulco,Huatulco,HUX,México,4,All Inclusive,271,1729.6,3.7
+H0793,Royal Vancouver,Vancouver,YVR,Canadá,4,Media pensión,180,3778.73,3.5
+H0794,Costa Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,240,3419.57,3.7
+H0795,Vista Mérida,Mérida,MID,México,5,All Inclusive,110,3871.33,4.0
+H0796,Plaza Madrid,Madrid,MAD,España,3,Desayuno incluido,451,2880.96,3.1
+H0797,Sol Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,443,2576.01,3.5
+H0798,Palms Guadalajara,Guadalajara,GDL,México,4,Desayuno incluido,246,1620.09,3.6
+H0799,Costa Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,145,1968.64,3.6
+H0800,Royal Miami,Miami,MIA,Estados Unidos,4,Media pensión,252,3450.42,4.0
+H0801,Mar París,París,CDG,Francia,4,Solo habitación,154,3026.23,3.7
+H0802,Mar Cancún,Cancún,CUN,México,4,Solo habitación,428,2197.26,3.6
+H0803,Grand Los Cabos,Los Cabos,SJD,México,5,Solo habitación,205,3055.02,3.8
+H0804,Aqua Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,386,2994.75,3.1
+H0805,Costa Monterrey,Monterrey,MTY,México,4,Solo habitación,227,1774.77,4.0
+H0806,Imperial Acapulco,Acapulco,ACA,México,4,All Inclusive,226,2805.94,3.6
+H0807,Vista Huatulco,Huatulco,HUX,México,5,Desayuno incluido,363,2308.45,3.5
+H0808,Costa Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,434,2157.85,3.7
+H0809,Mar Nueva York,Nueva York,JFK,Estados Unidos,3,Desayuno incluido,242,2173.86,3.4
+H0810,Imperial Mérida,Mérida,MID,México,5,Desayuno incluido,216,2577.29,3.8
+H0811,Grand Madrid,Madrid,MAD,España,4,Desayuno incluido,339,2714.74,3.7
+H0812,Mar Orlando,Orlando,MCO,Estados Unidos,5,All Inclusive,239,5209.27,3.9
+H0813,Plaza Guadalajara,Guadalajara,GDL,México,5,Solo habitación,357,2442.57,4.0
+H0814,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,3,All Inclusive,414,1684.42,3.4
+H0815,Costa Miami,Miami,MIA,Estados Unidos,4,Solo habitación,125,2408.81,3.7
+H0816,Plaza París,París,CDG,Francia,4,Solo habitación,253,4101.48,3.3
+H0817,Royal Cancún,Cancún,CUN,México,5,Desayuno incluido,285,3763.3,4.3
+H0818,Sol Los Cabos,Los Cabos,SJD,México,3,Media pensión,411,1391.56,4.1
+H0819,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,189,3600.77,3.6
+H0820,Vista Monterrey,Monterrey,MTY,México,4,Solo habitación,138,2786.45,3.8
+H0821,Aqua Acapulco,Acapulco,ACA,México,4,All Inclusive,140,2488.15,3.6
+H0822,Mar Huatulco,Huatulco,HUX,México,3,Desayuno incluido,376,1038.01,3.5
+H0823,Grand Vancouver,Vancouver,YVR,Canadá,3,Desayuno incluido,241,2502.33,3.6
+H0824,Grand Nueva York,Nueva York,JFK,Estados Unidos,3,Solo habitación,416,1723.46,3.7
+H0825,Vista Mérida,Mérida,MID,México,3,Solo habitación,466,1437.14,3.6
+H0826,Royal Madrid,Madrid,MAD,España,3,Solo habitación,228,1914.28,3.2
+H0827,Palms Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,297,3381.38,3.9
+H0828,Sol Guadalajara,Guadalajara,GDL,México,5,Solo habitación,129,2269.51,3.6
+H0829,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,4,Media pensión,428,2288.24,3.7
+H0830,Sol Miami,Miami,MIA,Estados Unidos,3,Media pensión,273,2501.14,3.9
+H0831,Palms París,París,CDG,Francia,5,Solo habitación,360,4577.57,4.4
+H0832,Grand Cancún,Cancún,CUN,México,5,Solo habitación,272,2465.27,3.8
+H0833,Imperial Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,291,1707.18,3.4
+H0834,Sol Las Vegas,Las Vegas,LAS,Estados Unidos,5,Media pensión,170,4048.64,4.3
+H0835,Royal Monterrey,Monterrey,MTY,México,4,Desayuno incluido,448,2809.42,3.4
+H0836,Royal Acapulco,Acapulco,ACA,México,5,Desayuno incluido,284,2301.97,3.8
+H0837,Mar Huatulco,Huatulco,HUX,México,5,Media pensión,404,3143.94,3.8
+H0838,Palms Vancouver,Vancouver,YVR,Canadá,5,All Inclusive,289,3561.03,3.9
+H0839,Palms Nueva York,Nueva York,JFK,Estados Unidos,3,Desayuno incluido,148,2192.82,3.5
+H0840,Grand Mérida,Mérida,MID,México,3,Desayuno incluido,224,1535.82,3.8
+H0841,Costa Madrid,Madrid,MAD,España,3,Solo habitación,162,2567.71,3.4
+H0842,Sol Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,135,4245.8,3.3
+H0843,Royal Guadalajara,Guadalajara,GDL,México,5,Desayuno incluido,415,2663.36,3.7
+H0844,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,5,Desayuno incluido,430,3670.7,3.9
+H0845,Vista Miami,Miami,MIA,Estados Unidos,4,All Inclusive,120,3020.62,3.2
+H0846,Imperial París,París,CDG,Francia,5,Desayuno incluido,125,4647.12,4.1
+H0847,Aqua Cancún,Cancún,CUN,México,4,Media pensión,411,2605.0,4.0
+H0848,Plaza Los Cabos,Los Cabos,SJD,México,4,All Inclusive,490,2541.91,4.3
+H0849,Imperial Las Vegas,Las Vegas,LAS,Estados Unidos,5,All Inclusive,284,5549.26,4.0
+H0850,Sol Monterrey,Monterrey,MTY,México,5,All Inclusive,132,2648.89,3.8
+H0851,Costa Acapulco,Acapulco,ACA,México,5,Desayuno incluido,485,3102.54,4.2
+H0852,Costa Huatulco,Huatulco,HUX,México,5,Desayuno incluido,81,2886.34,3.5
+H0853,Palms Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,344,3557.76,4.0
+H0854,Grand Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,74,5061.35,3.7
+H0855,Mar Mérida,Mérida,MID,México,3,All Inclusive,133,1680.13,3.2
+H0856,Costa Madrid,Madrid,MAD,España,5,Desayuno incluido,235,4379.55,3.7
+H0857,Costa Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,297,4690.27,4.2
+H0858,Palms Guadalajara,Guadalajara,GDL,México,4,Solo habitación,111,2411.01,4.0
+H0859,Costa Puerto Vallarta,Puerto Vallarta,PVR,México,4,All Inclusive,354,2752.85,4.1
+H0860,Mar Miami,Miami,MIA,Estados Unidos,3,Solo habitación,411,1982.77,3.5
+H0861,Imperial París,París,CDG,Francia,4,Desayuno incluido,393,4258.86,3.9
+H0862,Vista Cancún,Cancún,CUN,México,3,All Inclusive,125,1132.56,3.5
+H0863,Costa Los Cabos,Los Cabos,SJD,México,3,Solo habitación,317,1270.98,3.5
+H0864,Plaza Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,47,3402.04,3.8
+H0865,Aqua Monterrey,Monterrey,MTY,México,3,Desayuno incluido,470,1435.28,3.3
+H0866,Sol Acapulco,Acapulco,ACA,México,5,Solo habitación,272,3521.35,3.9
+H0867,Sol Huatulco,Huatulco,HUX,México,5,Media pensión,85,3173.08,3.9
+H0868,Sol Vancouver,Vancouver,YVR,Canadá,5,Solo habitación,142,5833.35,4.3
+H0869,Aqua Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,131,4075.95,4.5
+H0870,Aqua Mérida,Mérida,MID,México,5,Solo habitación,435,2316.28,3.5
+H0871,Mar Madrid,Madrid,MAD,España,3,Media pensión,113,1946.16,3.6
+H0872,Sol Orlando,Orlando,MCO,Estados Unidos,3,Solo habitación,58,1836.41,3.0
+H0873,Vista Guadalajara,Guadalajara,GDL,México,4,All Inclusive,119,1614.01,3.7
+H0874,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,3,All Inclusive,277,1510.94,3.4
+H0875,Vista Miami,Miami,MIA,Estados Unidos,3,Desayuno incluido,467,1640.87,4.2
+H0876,Imperial París,París,CDG,Francia,5,Solo habitación,359,5478.3,4.2
+H0877,Palms Cancún,Cancún,CUN,México,3,Desayuno incluido,273,1076.22,3.6
+H0878,Imperial Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,429,1176.6,3.6
+H0879,Palms Las Vegas,Las Vegas,LAS,Estados Unidos,5,All Inclusive,203,3487.4,4.0
+H0880,Imperial Monterrey,Monterrey,MTY,México,3,All Inclusive,383,1509.08,3.4
+H0881,Imperial Acapulco,Acapulco,ACA,México,3,All Inclusive,251,1839.99,3.9
+H0882,Vista Huatulco,Huatulco,HUX,México,3,Solo habitación,330,1223.0,3.3
+H0883,Sol Vancouver,Vancouver,YVR,Canadá,4,Media pensión,419,3498.01,4.0
+H0884,Palms Nueva York,Nueva York,JFK,Estados Unidos,4,Solo habitación,117,4157.26,3.6
+H0885,Vista Mérida,Mérida,MID,México,3,All Inclusive,362,1510.33,4.0
+H0886,Plaza Madrid,Madrid,MAD,España,3,Desayuno incluido,401,2163.74,3.3
+H0887,Vista Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,170,2575.61,4.4
+H0888,Vista Guadalajara,Guadalajara,GDL,México,5,Solo habitación,444,3843.04,3.9
+H0889,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,3,Media pensión,225,1475.39,3.6
+H0890,Vista Miami,Miami,MIA,Estados Unidos,3,Media pensión,476,2618.24,3.4
+H0891,Vista París,París,CDG,Francia,4,All Inclusive,450,4573.95,3.9
+H0892,Sol Cancún,Cancún,CUN,México,5,Solo habitación,498,3495.0,3.6
+H0893,Imperial Los Cabos,Los Cabos,SJD,México,3,Desayuno incluido,243,1543.37,3.0
+H0894,Royal Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,58,3103.15,4.2
+H0895,Vista Monterrey,Monterrey,MTY,México,4,Solo habitación,65,1983.49,3.7
+H0896,Palms Acapulco,Acapulco,ACA,México,3,Solo habitación,221,1795.41,3.7
+H0897,Mar Huatulco,Huatulco,HUX,México,4,Media pensión,178,1727.21,3.6
+H0898,Palms Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,97,2298.8,3.6
+H0899,Imperial Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,283,3572.46,4.1
+H0900,Palms Mérida,Mérida,MID,México,4,Solo habitación,316,2537.16,3.5
+H0901,Aqua Madrid,Madrid,MAD,España,4,All Inclusive,102,3868.18,4.2
+H0902,Sol Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,168,3909.95,3.9
+H0903,Palms Guadalajara,Guadalajara,GDL,México,4,Solo habitación,471,2537.58,3.8
+H0904,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,5,Desayuno incluido,79,3904.31,4.4
+H0905,Royal Miami,Miami,MIA,Estados Unidos,4,Media pensión,477,3322.63,3.4
+H0906,Plaza París,París,CDG,Francia,4,All Inclusive,278,3352.17,3.9
+H0907,Plaza Cancún,Cancún,CUN,México,4,Desayuno incluido,277,2028.74,3.9
+H0908,Plaza Los Cabos,Los Cabos,SJD,México,5,Solo habitación,438,2790.76,4.0
+H0909,Royal Las Vegas,Las Vegas,LAS,Estados Unidos,4,All Inclusive,346,3224.51,3.6
+H0910,Imperial Monterrey,Monterrey,MTY,México,4,Desayuno incluido,130,2200.99,4.0
+H0911,Grand Acapulco,Acapulco,ACA,México,4,Desayuno incluido,372,1823.32,3.3
+H0912,Grand Huatulco,Huatulco,HUX,México,4,Solo habitación,397,2417.36,3.4
+H0913,Plaza Vancouver,Vancouver,YVR,Canadá,3,Media pensión,365,1631.38,3.0
+H0914,Sol Nueva York,Nueva York,JFK,Estados Unidos,4,All Inclusive,93,4023.42,3.8
+H0915,Royal Mérida,Mérida,MID,México,3,All Inclusive,159,1120.58,3.6
+H0916,Mar Madrid,Madrid,MAD,España,3,Solo habitación,447,1782.76,3.3
+H0917,Royal Orlando,Orlando,MCO,Estados Unidos,4,All Inclusive,441,3871.42,3.8
+H0918,Sol Guadalajara,Guadalajara,GDL,México,3,All Inclusive,63,1415.54,3.8
+H0919,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,491,2711.03,3.7
+H0920,Palms Miami,Miami,MIA,Estados Unidos,5,Media pensión,97,3629.91,4.1
+H0921,Sol París,París,CDG,Francia,4,Desayuno incluido,50,3832.44,3.4
+H0922,Imperial Cancún,Cancún,CUN,México,4,All Inclusive,127,2363.21,3.9
+H0923,Royal Los Cabos,Los Cabos,SJD,México,4,Desayuno incluido,109,2513.89,3.5
+H0924,Royal Las Vegas,Las Vegas,LAS,Estados Unidos,4,Solo habitación,187,2802.95,3.8
+H0925,Plaza Monterrey,Monterrey,MTY,México,5,Solo habitación,178,3567.29,4.3
+H0926,Sol Acapulco,Acapulco,ACA,México,3,Desayuno incluido,432,1693.8,3.1
+H0927,Grand Huatulco,Huatulco,HUX,México,3,All Inclusive,343,1815.22,3.4
+H0928,Imperial Vancouver,Vancouver,YVR,Canadá,4,Solo habitación,415,2660.81,3.4
+H0929,Palms Nueva York,Nueva York,JFK,Estados Unidos,5,Solo habitación,128,4515.14,4.4
+H0930,Mar Mérida,Mérida,MID,México,4,Solo habitación,390,2126.89,3.9
+H0931,Sol Madrid,Madrid,MAD,España,4,Solo habitación,88,3607.21,4.0
+H0932,Costa Orlando,Orlando,MCO,Estados Unidos,5,Media pensión,402,3693.46,3.9
+H0933,Aqua Guadalajara,Guadalajara,GDL,México,5,Media pensión,277,3174.08,3.6
+H0934,Sol Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,272,1345.18,3.8
+H0935,Costa Miami,Miami,MIA,Estados Unidos,5,Media pensión,212,4310.92,4.2
+H0936,Mar París,París,CDG,Francia,3,Media pensión,353,2745.04,3.7
+H0937,Imperial Cancún,Cancún,CUN,México,4,Media pensión,231,2284.73,3.9
+H0938,Palms Los Cabos,Los Cabos,SJD,México,5,All Inclusive,89,3236.73,4.1
+H0939,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,465,2696.11,3.3
+H0940,Grand Monterrey,Monterrey,MTY,México,5,All Inclusive,279,2998.64,3.9
+H0941,Aqua Acapulco,Acapulco,ACA,México,5,Media pensión,477,3258.05,4.1
+H0942,Sol Huatulco,Huatulco,HUX,México,5,Media pensión,459,2213.98,4.1
+H0943,Costa Vancouver,Vancouver,YVR,Canadá,5,Media pensión,118,4505.93,4.2
+H0944,Royal Nueva York,Nueva York,JFK,Estados Unidos,5,Desayuno incluido,395,3887.37,4.1
+H0945,Sol Mérida,Mérida,MID,México,4,Media pensión,424,2041.54,3.6
+H0946,Plaza Madrid,Madrid,MAD,España,5,Media pensión,137,4408.05,3.9
+H0947,Plaza Orlando,Orlando,MCO,Estados Unidos,4,Desayuno incluido,113,2492.2,3.7
+H0948,Vista Guadalajara,Guadalajara,GDL,México,4,All Inclusive,282,2251.42,3.9
+H0949,Aqua Puerto Vallarta,Puerto Vallarta,PVR,México,5,Solo habitación,339,3564.76,3.6
+H0950,Sol Miami,Miami,MIA,Estados Unidos,5,Desayuno incluido,266,5711.6,3.8
+H0951,Plaza París,París,CDG,Francia,5,Solo habitación,269,6232.62,4.1
+H0952,Aqua Cancún,Cancún,CUN,México,4,Solo habitación,294,1768.94,3.3
+H0953,Sol Los Cabos,Los Cabos,SJD,México,4,Solo habitación,349,2591.21,3.5
+H0954,Vista Las Vegas,Las Vegas,LAS,Estados Unidos,3,All Inclusive,196,2136.72,3.4
+H0955,Palms Monterrey,Monterrey,MTY,México,5,All Inclusive,257,2248.0,4.1
+H0956,Plaza Acapulco,Acapulco,ACA,México,5,All Inclusive,126,2506.35,3.8
+H0957,Mar Huatulco,Huatulco,HUX,México,5,Solo habitación,79,2208.15,3.7
+H0958,Sol Vancouver,Vancouver,YVR,Canadá,3,Solo habitación,43,1758.73,3.6
+H0959,Grand Nueva York,Nueva York,JFK,Estados Unidos,4,Media pensión,337,3251.87,3.6
+H0960,Costa Mérida,Mérida,MID,México,3,All Inclusive,302,1375.24,3.8
+H0961,Imperial Madrid,Madrid,MAD,España,5,All Inclusive,89,5101.49,4.6
+H0962,Imperial Orlando,Orlando,MCO,Estados Unidos,4,Solo habitación,387,3688.49,3.2
+H0963,Royal Guadalajara,Guadalajara,GDL,México,3,Desayuno incluido,436,1117.55,3.0
+H0964,Imperial Puerto Vallarta,Puerto Vallarta,PVR,México,4,Desayuno incluido,151,1766.62,3.9
+H0965,Grand Miami,Miami,MIA,Estados Unidos,5,Desayuno incluido,77,5648.05,4.1
+H0966,Imperial París,París,CDG,Francia,4,Media pensión,136,4326.96,3.1
+H0967,Sol Cancún,Cancún,CUN,México,4,Media pensión,395,1759.05,3.1
+H0968,Royal Los Cabos,Los Cabos,SJD,México,4,Media pensión,201,2615.21,3.5
+H0969,Costa Las Vegas,Las Vegas,LAS,Estados Unidos,5,All Inclusive,276,3739.0,3.9
+H0970,Palms Monterrey,Monterrey,MTY,México,4,Media pensión,198,2518.0,3.3
+H0971,Imperial Acapulco,Acapulco,ACA,México,4,Solo habitación,310,2650.63,3.4
+H0972,Aqua Huatulco,Huatulco,HUX,México,4,Solo habitación,102,2176.88,3.7
+H0973,Costa Vancouver,Vancouver,YVR,Canadá,5,Media pensión,137,4521.15,3.9
+H0974,Vista Nueva York,Nueva York,JFK,Estados Unidos,3,Media pensión,408,2665.23,3.8
+H0975,Grand Mérida,Mérida,MID,México,3,Media pensión,179,1166.32,3.5
+H0976,Mar Madrid,Madrid,MAD,España,4,Solo habitación,335,2850.42,3.2
+H0977,Sol Orlando,Orlando,MCO,Estados Unidos,3,Desayuno incluido,319,2316.52,3.5
+H0978,Aqua Guadalajara,Guadalajara,GDL,México,3,Desayuno incluido,285,1054.49,3.0
+H0979,Grand Puerto Vallarta,Puerto Vallarta,PVR,México,3,Desayuno incluido,479,1808.23,3.5
+H0980,Aqua Miami,Miami,MIA,Estados Unidos,5,Desayuno incluido,203,4640.76,3.9
+H0981,Plaza París,París,CDG,Francia,3,Desayuno incluido,222,2296.2,3.8
+H0982,Plaza Cancún,Cancún,CUN,México,5, all inclusive ,410,2583.6,4.1
+H0983,Plaza Los Cabos,Los Cabos,SJD,México,3,All Inclusive,458,1136.69,3.6
+H0984,Costa Las Vegas,Las Vegas,LAS,Estados Unidos,4,Media pensión,129,3175.82,3.7
+H0985,Palms Monterrey,Monterrey,MTY,México,5,Desayuno incluido,113,3876.17,3.8
+H0986,Vista Acapulco,Acapulco,ACA,México,3,Media pensión,125,1277.6,3.8
+H0987,Plaza Huatulco,Huatulco,HUX,México,3,All Inclusive,331,1464.38,3.8
+H0988,Palms Vancouver,Vancouver,YVR,Canadá,4,All Inclusive,144,2842.05,4.1
+H0989,Imperial Nueva York,Nueva York,JFK,Estados Unidos,3,All Inclusive,250,2223.26,3.3
+H0990,Mar Mérida,Mérida,MID,México,4,Solo habitación,102,1813.5,3.9
+H0991,Mar Madrid,Madrid,MAD,España,4,All Inclusive,248,2941.79,3.6
+H0992,Palms Orlando,Orlando,MCO,Estados Unidos,3,Solo habitación,260,1549.97,3.0
+H0993,Royal Guadalajara,Guadalajara,GDL,México,4,Solo habitación,157,2838.13,3.6
+H0994,Palms Puerto Vallarta,Puerto Vallarta,PVR,México,3,Solo habitación,75,1126.45,3.4
+H0995,Royal Miami,Miami,MIA,Estados Unidos,3,Solo habitación,353,1664.76,3.3
+H0996,Imperial París,París,CDG,Francia,4,All Inclusive,278,3226.74,4.6
+H0997,Grand Cancún,Cancún,CUN,México,4,Desayuno incluido,201,2210.43,3.1
+H0998,Grand Los Cabos,Los Cabos,SJD,México,4,Media pensión,472,2379.85,3.4
+H0999,Grand Las Vegas,Las Vegas,LAS,Estados Unidos,4,Desayuno incluido,272,4083.06,3.6
+H1000,Costa Monterrey,Monterrey,MTY,México,3,Desayuno incluido,71,1191.97,3.6
+H0522,Palms Huatulco,Huatulco,HUX,México,3,All Inclusive,455,1605.96,3.5
